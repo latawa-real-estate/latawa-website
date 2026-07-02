@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties — LATAWA REAL ESTATE</title>
+  <meta name="description" content="Browse Latawa Real Estate's full portfolio of premium residential, commercial, and farmhouse properties across Punjab." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div id="page-content">
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop" alt="Latawa Properties" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>Properties</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line">Find a property</span><br/>
+      <span class="hero-title-line">worth <em>calling home</em></span>
+    </h1>
+    <p class="page-hero-sub">Browse our full portfolio of vetted residential and commercial listings across Punjab — every one checked for legal clarity before it ever reaches you.</p>
+  </div>
+</section>
+
+<section class="filter-section" id="filters">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All Properties</button>
+        <button class="filter-tab" data-filter="residential">Residential</button>
+        <button class="filter-tab" data-filter="commercial">Commercial</button>
+        <button class="filter-tab" data-filter="farmhouse">Farmhouse</button>
+      </div>
+      <p class="results-count"><strong id="resultsNum">12</strong> properties found</p>
+    </div>
+  </div>
+</section>
+
+<section class="properties-section" style="padding-top:0;">
+  <div class="container">
+    <div class="properties-grid" id="propertiesGrid">
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&fit=crop" alt="The Meridian Villa" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-residential">Featured</span></div><div class="prop-info"><h3 class="prop-name">The Meridian Villa</h3><p class="prop-loc">📍 Chandigarh, Punjab</p><div class="prop-meta"><span class="prop-price">₹2.8 Cr</span><span class="prop-specs">4 Bed · 4500 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&fit=crop" alt="Skyline Residency" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-residential">New</span></div><div class="prop-info"><h3 class="prop-name">Skyline Residency</h3><p class="prop-loc">📍 Mohali, Punjab</p><div class="prop-meta"><span class="prop-price">₹1.5 Cr</span><span class="prop-specs">3 Bed · 2200 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80&fit=crop" alt="The Luxe Manor" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div></div><div class="prop-info"><h3 class="prop-name">The Luxe Manor</h3><p class="prop-loc">📍 Ludhiana, Punjab</p><div class="prop-meta"><span class="prop-price">₹3.2 Cr</span><span class="prop-specs">5 Bed · 5200 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=600&q=80&fit=crop" alt="Horizon Apartments" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-residential">Prime</span></div><div class="prop-info"><h3 class="prop-name">Horizon Apartments</h3><p class="prop-loc">📍 Firozpur, Punjab</p><div class="prop-meta"><span class="prop-price">₹85 L</span><span class="prop-specs">2 Bed · 1350 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="farmhouse"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600&q=80&fit=crop" alt="Oasis Farmhouse" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div></div><div class="prop-info"><h3 class="prop-name">Oasis Farmhouse</h3><p class="prop-loc">📍 Mansa, Punjab</p><div class="prop-meta"><span class="prop-price">₹1.1 Cr</span><span class="prop-specs">3 Bed · 1 Acre</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80&fit=crop" alt="The Crown Estate" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-residential">Exclusive</span></div><div class="prop-info"><h3 class="prop-name">The Crown Estate</h3><p class="prop-loc">📍 Amritsar, Punjab</p><div class="prop-meta"><span class="prop-price">₹4.5 Cr</span><span class="prop-specs">6 Bed · 6800 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="commercial"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&fit=crop" alt="Latawa Business Tower" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-commercial">Commercial</span></div><div class="prop-info"><h3 class="prop-name">Latawa Business Tower</h3><p class="prop-loc">📍 Chandigarh, Punjab</p><div class="prop-meta"><span class="prop-price">₹6.2 Cr</span><span class="prop-specs">Office · 8000 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="commercial"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80&fit=crop" alt="Prime Retail Plaza" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-commercial">Commercial</span></div><div class="prop-info"><h3 class="prop-name">Prime Retail Plaza</h3><p class="prop-loc">📍 Mohali, Punjab</p><div class="prop-meta"><span class="prop-price">₹3.8 Cr</span><span class="prop-specs">Retail · 4200 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&fit=crop" alt="Garden View Residency" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div></div><div class="prop-info"><h3 class="prop-name">Garden View Residency</h3><p class="prop-loc">📍 Ludhiana, Punjab</p><div class="prop-meta"><span class="prop-price">₹1.9 Cr</span><span class="prop-specs">3 Bed · 2600 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="farmhouse"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&fit=crop" alt="Riverside Farmhouse" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div></div><div class="prop-info"><h3 class="prop-name">Riverside Farmhouse</h3><p class="prop-loc">📍 Firozpur, Punjab</p><div class="prop-meta"><span class="prop-price">₹95 L</span><span class="prop-specs">2 Bed · 0.75 Acre</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="commercial"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&fit=crop" alt="Elite Business Park" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-commercial">Commercial</span></div><div class="prop-info"><h3 class="prop-name">Elite Business Park</h3><p class="prop-loc">📍 Amritsar, Punjab</p><div class="prop-meta"><span class="prop-price">₹5.4 Cr</span><span class="prop-specs">Office · 7100 sqft</span></div></div></div>
+      <div class="prop-card reveal-up" data-category="residential"><div class="prop-img-wrap"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80&fit=crop" alt="Sunrise Heights" class="prop-img" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div><span class="prop-badge type-residential">New</span></div><div class="prop-info"><h3 class="prop-name">Sunrise Heights</h3><p class="prop-loc">📍 Mansa, Punjab</p><div class="prop-meta"><span class="prop-price">₹1.2 Cr</span><span class="prop-specs">3 Bed · 1900 sqft</span></div></div></div>
+    </div>
+    <p class="no-results" id="noResults">No properties match this filter — <a href="/contact-us/" style="color:var(--accent);text-decoration:underline;">get in touch</a> and we'll find the right one for you.</p>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal-up"><p class="stat-num">500<span>+</span></p><p class="stat-label">Properties</p></div>
+      <div class="stat-card reveal-up"><p class="stat-num">100<span>+</span></p><p class="stat-label">Happy Clients</p></div>
+      <div class="stat-card reveal-up"><p class="stat-num">10<span>+</span></p><p class="stat-label">Years Experience</p></div>
+      <div class="stat-card reveal-up"><p class="stat-num">50<span>+</span></p><p class="stat-label">Projects Delivered</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-mesh"></div>
+  <div class="container cta-inner reveal-up">
+    <p class="section-eyebrow" style="justify-content:center;">Can't Find What You Need?</p>
+    <h2 class="cta-heading">Tell us what you're<br/><em>looking for</em></h2>
+    <p class="cta-sub">Many of our best matches never make it to a public listing. Reach out and we'll find the right one for your budget and goals.</p>
+    <div class="cta-btns">
+      <a href="/contact-us/" class="btn-primary">Get In Touch</a>
+      <a href="tel:+919988500421" class="btn-ghost">Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="/components/loader.js"></script>
+<script>
+window.__pageInit = function() {
+  // Hero title animation
+  if (!PREFERS_REDUCED) {
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
+      .to('.page-hero-sub', { opacity:1, y:0, duration:0.7, ease:'power3.out' }, '-=0.35');
+  } else {
+    gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
+  }
+  // Filter tabs
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.prop-card');
+  const resultsNum = document.getElementById('resultsNum');
+  const noResults = document.getElementById('noResults');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      let count = 0;
+      cards.forEach(card => {
+        const match = filter==='all' || card.getAttribute('data-category')===filter;
+        card.classList.toggle('is-hidden', !match);
+        if (match) count++;
+      });
+      resultsNum.textContent = count;
+      noResults.classList.toggle('show', count===0);
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+  });
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LATAWA REAL ESTATE — Trust · Value · Growth</title>
+  <meta name="description" content="Premium property investments across Punjab." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="page-content">
+
+  <!-- HERO — populated by Sanity -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-bg">
+      <img id="heroImg" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop" alt="Luxury Architecture" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-text" id="heroEyebrow">Trust · Value · Growth</p>
+      <h1 class="hero-headline">
+        <span class="hero-line"><span class="hero-line-inner" id="heroLine1">Where Vision</span></span>
+        <span class="hero-line hero-line-italic"><span class="hero-line-inner" id="heroLine2">Meets Valuable</span></span>
+        <span class="hero-line"><span class="hero-line-inner" id="heroLine3">Real Estate</span></span>
+      </h1>
+      <p class="hero-sub reveal-text" id="heroSub">Premium property investments designed for<br/>long-term growth and trust.</p>
+      <div class="hero-btns reveal-text">
+        <a id="heroBtnPrimary" href="/properties/" class="btn-primary">Explore Properties</a>
+        <a id="heroBtnSecondary" href="#contact" class="btn-ghost">Book Consultation</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator"><div class="scroll-line"></div><span>Scroll</span></div>
+  </section>
+
+  <!-- TRUST STATS — populated by Sanity -->
+  <section class="trust-section" id="trust">
+    <div class="container">
+      <div class="trust-grid" id="trustGrid">
+        <div class="trust-card"><h2 class="trust-num" data-target="600">0</h2><span class="trust-plus">+</span><p class="trust-label">Properties</p></div>
+        <div class="trust-card"><h2 class="trust-num" data-target="120">0</h2><span class="trust-plus">+</span><p class="trust-label">Happy Clients</p></div>
+        <div class="trust-card"><h2 class="trust-num" data-target="12">0</h2><span class="trust-plus">+</span><p class="trust-label">Years Experience</p></div>
+        <div class="trust-card"><h2 class="trust-num" data-target="65">0</h2><span class="trust-plus">+</span><p class="trust-label">Projects Delivered</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>LUXURY LIVING</span><span class="m-dot">◆</span>
+      <span>PRIME LOCATIONS</span><span class="m-dot">◆</span>
+      <span>TRUSTED INVESTMENTS</span><span class="m-dot">◆</span>
+      <span>PREMIUM PROPERTIES</span><span class="m-dot">◆</span>
+      <span>EXPERT GUIDANCE</span><span class="m-dot">◆</span>
+      <span>LATAWA REAL ESTATE</span><span class="m-dot">◆</span>
+      <span>LUXURY LIVING</span><span class="m-dot">◆</span>
+      <span>PRIME LOCATIONS</span><span class="m-dot">◆</span>
+      <span>TRUSTED INVESTMENTS</span><span class="m-dot">◆</span>
+      <span>PREMIUM PROPERTIES</span><span class="m-dot">◆</span>
+      <span>EXPERT GUIDANCE</span><span class="m-dot">◆</span>
+      <span>LATAWA REAL ESTATE</span><span class="m-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ABOUT — populated by Sanity -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-image-wrap">
+        <div class="about-img-frame">
+          <img id="aboutImg" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&fit=crop" alt="Premium Architecture" class="about-img parallax-img" />
+        </div>
+        <div class="about-float-card glass-card">
+          <p class="float-num" id="aboutFloatNum">12+</p>
+          <p class="float-label">Years of Excellence</p>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow reveal-up" id="aboutEyebrow">About Latawa</p>
+        <h2 class="section-heading split-heading" id="aboutHeading">Redefining<br/><em>Luxury</em><br/>Real Estate</h2>
+        <p class="about-para reveal-up" id="aboutPara1">At Latawa Real Estate, we don't just sell properties — we craft futures. With over a decade of experience across premium residential and commercial markets, we have built a legacy of trust, delivering unmatched value to every client we serve.</p>
+        <p class="about-para reveal-up" id="aboutPara2">Founded by Inder Latawa and guided by Vivek Latawa, our team brings personal dedication to every transaction, ensuring your investment journey is seamless, informed, and rewarding.</p>
+        <div class="about-tags reveal-up">
+          <span class="tag">Premium Residential</span>
+          <span class="tag">Commercial Spaces</span>
+          <span class="tag">Investment Advisory</span>
+        </div>
+        <a href="/about-us/" class="btn-outline reveal-up">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROPERTIES — from Sanity -->
+  <section class="properties-section" id="properties">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow reveal-up">Portfolio</p>
+        <h2 class="section-heading split-heading">Featured<br/><em>Properties</em></h2>
+        <p class="section-desc reveal-up">Curated selection of our most exclusive listings, each representing the pinnacle of luxury living.</p>
+      </div>
+      <div class="properties-grid" id="propertiesGrid">
+        <!-- Fallback cards shown before Sanity loads -->
+        <div class="prop-card glass-card"><div class="prop-img-wrap"><div style="height:200px;background:rgba(255,255,255,0.04);border-radius:8px;"></div></div><div class="prop-info"><div style="height:14px;background:rgba(255,255,255,0.07);border-radius:4px;margin-bottom:8px;"></div><div style="height:12px;background:rgba(255,255,255,0.05);border-radius:4px;width:60%;"></div></div></div>
+        <div class="prop-card glass-card"><div class="prop-img-wrap"><div style="height:200px;background:rgba(255,255,255,0.04);border-radius:8px;"></div></div><div class="prop-info"><div style="height:14px;background:rgba(255,255,255,0.07);border-radius:4px;margin-bottom:8px;"></div><div style="height:12px;background:rgba(255,255,255,0.05);border-radius:4px;width:60%;"></div></div></div>
+        <div class="prop-card glass-card"><div class="prop-img-wrap"><div style="height:200px;background:rgba(255,255,255,0.04);border-radius:8px;"></div></div><div class="prop-info"><div style="height:14px;background:rgba(255,255,255,0.07);border-radius:4px;margin-bottom:8px;"></div><div style="height:12px;background:rgba(255,255,255,0.05);border-radius:4px;width:60%;"></div></div></div>
+      </div>
+      <div style="text-align:center;margin-top:48px;"><a href="/properties/" class="btn-ghost">View All Properties →</a></div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US — from Sanity -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow reveal-up">Why Latawa</p>
+        <h2 class="section-heading split-heading">Built on<br/><em>Excellence</em></h2>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Populated from Sanity -->
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4L36 12V20C36 28 28.8 35.2 20 38C11.2 35.2 4 28 4 20V12L20 4Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 20L18 25L28 15" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="service-title">Trusted Investment</h3><p class="service-desc">Every property is carefully vetted for legal clarity and long-term value before we present it to you.</p></div>
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15" stroke="white" stroke-width="1.5"/><path d="M20 8V20L27 27" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 class="service-title">Prime Locations</h3><p class="service-desc">Strategic sites selected for connectivity, growth potential, and lifestyle excellence across Punjab.</p></div>
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="2" stroke="white" stroke-width="1.5"/><path d="M14 14H26M14 19H26M14 24H20" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3 class="service-title">Legal Assistance</h3><p class="service-desc">Complete documentation support to ensure every transaction is secure and legally compliant.</p></div>
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M8 32V16L20 8L32 16V32H24V24H16V32H8Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3 class="service-title">Property Management</h3><p class="service-desc">From acquisition to maintenance, we handle every detail so your investment performs without effort.</p></div>
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M10 30L10 20L20 8L30 20V30" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><polyline points="10,30 30,30" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M15 30V22H25V30" stroke="white" stroke-width="1.5"/></svg></div><h3 class="service-title">Growth Focus</h3><p class="service-desc">Data-driven strategies that identify high-appreciation corridors to multiply your wealth over time.</p></div>
+        <div class="service-card glass-card"><div class="service-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" stroke="white" stroke-width="1.5"/><path d="M8 34C8 27.4 13.4 22 20 22C26.6 22 32 27.4 32 34" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3 class="service-title">Personal Consultation</h3><p class="service-desc">One-on-one attention from Inder and Vivek Latawa — because your investment deserves personal expertise.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">How It Works</p>
+        <h2 class="section-heading split-heading">Simple Path to<br/><em>Ownership</em></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-line"><div class="process-line-fill" id="processLineFill"></div></div>
+        <div class="process-steps">
+          <div class="process-step"><div class="step-num">01</div><div class="step-dot"></div><h3 class="step-title">Consultation</h3><p class="step-desc">We understand your goals, budget, and vision in a detailed personal consultation.</p></div>
+          <div class="process-step"><div class="step-num">02</div><div class="step-dot"></div><h3 class="step-title">Property Selection</h3><p class="step-desc">Our experts shortlist properties perfectly matched to your requirements.</p></div>
+          <div class="process-step"><div class="step-num">03</div><div class="step-dot"></div><h3 class="step-title">Documentation</h3><p class="step-desc">We handle all legal paperwork, verifications, and regulatory compliance.</p></div>
+          <div class="process-step"><div class="step-num">04</div><div class="step-dot"></div><h3 class="step-title">Ownership</h3><p class="step-desc">Receive the keys to your new property — and a lifelong partner in growth.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — from Sanity -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">Client Stories</p>
+        <h2 class="section-heading split-heading">Voices of<br/><em>Trust</em></h2>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card glass-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Inder ji guided us through every step. We found our dream home in Chandigarh at the right price, with zero legal complications. Truly a trustworthy team."</p><div class="testi-author"><div class="testi-avatar">RS</div><div><p class="testi-name">Rajinder Singh</p><p class="testi-role">Homebuyer, Chandigarh</p></div></div></div>
+          <div class="testi-card glass-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Vivek helped us identify a commercial plot that tripled in value within 3 years. Latawa Real Estate understands the market like no one else."</p><div class="testi-author"><div class="testi-avatar">PK</div><div><p class="testi-name">Priya Kapoor</p><p class="testi-role">Investor, Mohali</p></div></div></div>
+          <div class="testi-card glass-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Professional, transparent, and genuinely caring about your investment. Latawa Real Estate is the only name I recommend to family and friends."</p><div class="testi-author"><div class="testi-avatar">AS</div><div><p class="testi-name">Amrit Sandhu</p><p class="testi-role">NRI Investor, Ludhiana</p></div></div></div>
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testiPrev" aria-label="Previous">←</button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testiNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="cta-mesh"></div>
+    <div class="container cta-inner reveal-up">
+      <p class="section-eyebrow" style="justify-content:center;">Get Started</p>
+      <h2 class="cta-heading">Your Next Investment<br/><em>Starts Here</em></h2>
+      <p class="cta-sub">Whether you're buying your first home or expanding your portfolio,<br/>we're ready to guide every step of your journey.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-primary">Start Your Journey</a>
+        <a href="tel:+919988500421" class="btn-ghost" id="ctaPhone">Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT — from Sanity -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="section-eyebrow reveal-up">Get In Touch</p>
+        <h2 class="section-heading split-heading">Let's Find<br/>Your <em>Home</em></h2>
+        <div class="contact-details" id="contactDetails">
+          <div class="contact-item reveal-up"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.36 12 19.79 19.79 0 011.3 3.44 2 2 0 013.28 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="white" stroke-width="1.5"/></svg></div><div><p class="contact-label" id="contact1Name">Inder Latawa</p><a href="tel:+919988500421" class="contact-value" id="contact1Phone">+91 98885 00421</a></div></div>
+          <div class="contact-item reveal-up"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.36 12 19.79 19.79 0 011.3 3.44 2 2 0 013.28 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="white" stroke-width="1.5"/></svg></div><div><p class="contact-label" id="contact2Name">Vivek Latawa</p><a href="tel:+919814978768" class="contact-value" id="contact2Phone">+91 98149 78768</a></div></div>
+          <div class="contact-item reveal-up"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="white" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="white" stroke-width="1.5"/></svg></div><div><p class="contact-label">Office</p><p class="contact-value" id="contactAddress">VPO Firozpur, Near Mata Mansa Devi Temple, Punjab</p></div></div>
+        </div>
+      </div>
+      <div class="contact-form-wrap glass-card reveal-up">
+        <h3 class="form-title">Send a Message</h3>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group"><input type="text" name="name" placeholder="Your Full Name" required class="form-input" /></div>
+          <div class="form-group"><input type="tel" name="phone" placeholder="Phone Number" required class="form-input" /></div>
+          <div class="form-group"><input type="email" name="email" placeholder="Email Address" class="form-input" /></div>
+          <div class="form-group"><select name="interest" class="form-input form-select"><option value="" disabled selected>Area of Interest</option><option>Residential Property</option><option>Commercial Space</option><option>Investment Advisory</option><option>Property Management</option></select></div>
+          <div class="form-group"><textarea name="message" placeholder="Your Message" rows="4" class="form-input"></textarea></div>
+          <button type="submit" class="btn-primary full-width">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /#page-content -->
+
+  <script src="/components/loader.js"></script>
+  <script>
+  window.__pageInit = async function() {
+    // Load Sanity data in parallel
+    const [hero, stats, contact, about, properties, testimonials] = await Promise.all([
+      sanityFetch(`*[_type=="homepage"][0]{eyebrow,headline1,headline2,headline3,subtext,heroBgImage,btnPrimaryLabel,btnPrimaryLink,btnSecondaryLabel,btnSecondaryLink,aboutEyebrow,aboutHeading,aboutPara1,aboutPara2,aboutImage,yearsExperience}`),
+      sanityFetch(`*[_type=="siteStats"][0]{stat1Number,stat1Label,stat2Number,stat2Label,stat3Number,stat3Label,stat4Number,stat4Label}`),
+      sanityFetch(`*[_type=="contactInfo"][0]{founder1Name,founder1Phone,founder2Name,founder2Phone,address}`),
+      sanityFetch(`*[_type=="homepage"][0]{aboutEyebrow,aboutHeading,aboutPara1,aboutPara2,aboutImage,yearsExperience}`),
+      sanityFetch(`*[_type=="property" && featured==true] | order(displayOrder asc)[0...6]{name,location,price,specs,badge,category,mainImage}`),
+      sanityFetch(`*[_type=="testimonial" && active!=false] | order(_createdAt desc)[0...6]{clientName,role,quote,rating,initials}`)
+    ]);
+
+    // -- Hero --
+    if (hero) {
+      if (hero.eyebrow) document.getElementById('heroEyebrow').textContent = hero.eyebrow;
+      if (hero.headline1) document.getElementById('heroLine1').textContent = hero.headline1;
+      if (hero.headline2) document.getElementById('heroLine2').textContent = hero.headline2;
+      if (hero.headline3) document.getElementById('heroLine3').textContent = hero.headline3;
+      if (hero.subtext) document.getElementById('heroSub').innerHTML = hero.subtext;
+      if (hero.btnPrimaryLabel) { const b = document.getElementById('heroBtnPrimary'); b.textContent = hero.btnPrimaryLabel; if(hero.btnPrimaryLink) b.href = hero.btnPrimaryLink; }
+      if (hero.btnSecondaryLabel) { const b = document.getElementById('heroBtnSecondary'); b.textContent = hero.btnSecondaryLabel; if(hero.btnSecondaryLink) b.href = hero.btnSecondaryLink; }
+      if (hero.heroBgImage) { const url = sanityImg(hero.heroBgImage, 1800, 80); if(url) document.getElementById('heroImg').src = url; }
+      if (hero.aboutPara1) document.getElementById('aboutPara1').textContent = hero.aboutPara1;
+      if (hero.aboutPara2) document.getElementById('aboutPara2').textContent = hero.aboutPara2;
+      if (hero.aboutEyebrow) document.getElementById('aboutEyebrow').textContent = hero.aboutEyebrow;
+      if (hero.aboutHeading) document.getElementById('aboutHeading').innerHTML = hero.aboutHeading.replace(/\n/g, '<br/>');
+      if (hero.aboutImage) { const url = sanityImg(hero.aboutImage, 800, 80); if(url) document.getElementById('aboutImg').src = url; }
+      if (hero.yearsExperience) document.getElementById('aboutFloatNum').textContent = hero.yearsExperience + '+';
+    }
+
+    // -- Stats --
+    if (stats) {
+      const grid = document.getElementById('trustGrid');
+      if (grid) {
+        grid.innerHTML = [
+          {n: stats.stat1Number||600, l: stats.stat1Label||'Properties'},
+          {n: stats.stat2Number||120, l: stats.stat2Label||'Happy Clients'},
+          {n: stats.stat3Number||12,  l: stats.stat3Label||'Years Experience'},
+          {n: stats.stat4Number||65,  l: stats.stat4Label||'Projects Delivered'},
+        ].map(s => `<div class="trust-card"><h2 class="trust-num" data-target="${s.n}">0</h2><span class="trust-plus">+</span><p class="trust-label">${s.l}</p></div>`).join('');
+      }
+    }
+
+    // -- Contact --
+    if (contact) {
+      if (contact.founder1Name) document.getElementById('contact1Name').textContent = contact.founder1Name;
+      if (contact.founder1Phone) { const el = document.getElementById('contact1Phone'); el.textContent = contact.founder1Phone; el.href = 'tel:' + contact.founder1Phone.replace(/\s/g,''); }
+      if (contact.founder2Name) document.getElementById('contact2Name').textContent = contact.founder2Name;
+      if (contact.founder2Phone) { const el = document.getElementById('contact2Phone'); el.textContent = contact.founder2Phone; el.href = 'tel:' + contact.founder2Phone.replace(/\s/g,''); }
+      if (contact.address) document.getElementById('contactAddress').textContent = contact.address;
+    }
+
+    // -- Properties --
+    if (properties && properties.length) {
+      const grid = document.getElementById('propertiesGrid');
+      grid.innerHTML = properties.map(p => {
+        const imgUrl = p.mainImage ? sanityImg(p.mainImage, 600, 80) : 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&fit=crop';
+        const badge = p.badge ? `<span class="prop-badge">${p.badge}</span>` : '';
+        return `<div class="prop-card glass-card">
+          <div class="prop-img-wrap">
+            <img src="${imgUrl}" alt="${p.name}" class="prop-img" loading="lazy" />
+            <div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">View Details</a></div>
+            ${badge}
+          </div>
+          <div class="prop-info">
+            <h3 class="prop-name">${p.name}</h3>
+            <p class="prop-loc">📍 ${p.location||''}</p>
+            <div class="prop-meta"><span class="prop-price">${p.price||''}</span><span class="prop-specs">${p.specs||''}</span></div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // -- Testimonials --
+    if (testimonials && testimonials.length) {
+      const track = document.getElementById('testiTrack');
+      track.innerHTML = testimonials.map(t => {
+        const stars = '★'.repeat(Math.min(t.rating||5,5));
+        const initials = t.initials || (t.clientName||'').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+        return `<div class="testi-card glass-card">
+          <div class="testi-stars">${stars}</div>
+          <p class="testi-text">"${t.quote}"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">${initials}</div>
+            <div><p class="testi-name">${t.clientName}</p><p class="testi-role">${t.role||''}</p></div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // -- Run page animations --
+    initHeroIntro();
+    initHeroParticles();
+    initHeroThree();
+    initCountUp();
+    initSplitHeadings();
+    initParallax();
+    initProcessLine();
+    initTestimonials();
+    initHomepageReveals();
+  };
+
+  function initHeroIntro() {
+    if (PREFERS_REDUCED) { gsap.set('.hero-line-inner',{opacity:1,y:0}); gsap.set('.hero-eyebrow,.hero-sub,.hero-btns',{opacity:1,y:0}); return; }
+    const tl = gsap.timeline({delay:0.2});
+    tl.to('.hero-line-inner',{y:'0%',opacity:1,duration:1,ease:'power4.out',stagger:0.12})
+      .to('.hero-eyebrow',{opacity:1,y:0,duration:0.7,ease:'power3.out'},0.15)
+      .to('.hero-sub',{opacity:1,y:0,duration:0.7,ease:'power3.out'},'-=0.4')
+      .to('.hero-btns',{opacity:1,y:0,duration:0.7,ease:'power3.out'},'-=0.4');
+  }
+  function initHeroParticles() {
+    const container=document.getElementById('heroParticles');
+    if(!container||PREFERS_REDUCED||IS_MOBILE)return;
+    for(let i=0;i<20;i++){const p=document.createElement('div');const size=Math.random()*2.5+1;Object.assign(p.style,{position:'absolute',width:size+'px',height:size+'px',borderRadius:'50%',background:`rgba(255,255,255,${Math.random()*0.25+0.06})`,left:Math.random()*100+'%',top:Math.random()*100+'%',pointerEvents:'none'});container.appendChild(p);gsap.to(p,{y:(Math.random()-0.5)*80,x:(Math.random()-0.5)*40,duration:Math.random()*10+8,repeat:-1,yoyo:true,ease:'sine.inOut',delay:Math.random()*4});}
+  }
+  function initHeroThree() {
+    const canvas=document.getElementById('heroCanvas');if(!canvas||PREFERS_REDUCED||IS_MOBILE||typeof THREE==='undefined')return;const hero=document.querySelector('.hero');let W=hero.clientWidth,H=hero.clientHeight;const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(55,W/H,0.1,500);camera.position.z=25;const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false});renderer.setSize(W,H);renderer.setPixelRatio(1);const count=300,pos=new Float32Array(count*3);for(let i=0;i<count;i++){pos[i*3]=(Math.random()-0.5)*70;pos[i*3+1]=(Math.random()-0.5)*45;pos[i*3+2]=(Math.random()-0.5)*50;}const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));const mat=new THREE.PointsMaterial({color:0xffffff,size:0.15,transparent:true,opacity:0.35});const points=new THREE.Points(geo,mat);scene.add(points);let mouseX=0,mouseY=0;window.addEventListener('mousemove',e=>{mouseX=(e.clientX/W-0.5)*1.5;mouseY=(e.clientY/H-0.5)*1.5;},{passive:true});let raf;function animate(){raf=requestAnimationFrame(animate);points.rotation.y+=0.0004;camera.position.x+=(mouseX*2-camera.position.x)*0.03;camera.position.y+=(-mouseY*2-camera.position.y)*0.03;camera.lookAt(scene.position);renderer.render(scene,camera);}animate();window.addEventListener('resize',()=>{W=hero.clientWidth;H=hero.clientHeight;camera.aspect=W/H;camera.updateProjectionMatrix();renderer.setSize(W,H);},{passive:true});
+  }
+  function initCountUp() {
+    document.querySelectorAll('.trust-num').forEach(el=>{const target=parseInt(el.getAttribute('data-target'),10);let triggered=false;ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:()=>{if(triggered)return;triggered=true;let current=0;const duration=1600,step=16;const increment=target/(duration/step);const timer=setInterval(()=>{current=Math.min(current+increment,target);el.textContent=Math.floor(current);if(current>=target)clearInterval(timer);},step);}});});
+  }
+  function initSplitHeadings() {
+    if(PREFERS_REDUCED||typeof SplitType==='undefined')return;
+    document.querySelectorAll('.split-heading').forEach(heading=>{try{const split=new SplitType(heading,{types:'lines',lineClass:'split-line'});split.lines.forEach(line=>{const wrap=document.createElement('div');wrap.style.cssText='overflow:hidden;display:block;';line.parentNode.insertBefore(wrap,line);wrap.appendChild(line);gsap.set(line,{y:'100%',display:'block'});});gsap.to(split.lines,{y:'0%',duration:0.9,ease:'power4.out',stagger:0.08,scrollTrigger:{trigger:heading,start:'top 88%',toggleActions:'play none none none'}});}catch(e){}});
+  }
+  function initHomepageReveals() {
+    gsap.fromTo('.about-float-card',{opacity:0,scale:0.9},{opacity:1,scale:1,duration:0.7,ease:'back.out(1.4)',scrollTrigger:{trigger:'.about-image-wrap',start:'top 80%'}});
+  }
+  function initParallax() {
+    if(IS_MOBILE||PREFERS_REDUCED)return;
+    gsap.to('.parallax-img',{yPercent:10,ease:'none',scrollTrigger:{trigger:'.about-img-frame',start:'top bottom',end:'bottom top',scrub:2}});
+    gsap.to('.hero-img',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:2}});
+  }
+  function initProcessLine() {
+    const fill=document.getElementById('processLineFill');if(!fill)return;
+    gsap.to(fill,{width:'100%',ease:'none',scrollTrigger:{trigger:'.process-timeline',start:'top 72%',end:'bottom 60%',scrub:1.5}});
+  }
+  function initTestimonials() {
+    const track=document.getElementById('testiTrack');const dotsWrap=document.getElementById('testiDots');if(!track)return;const cards=Array.from(track.children);let perView=window.innerWidth<=768?1:3;let index=0;const maxIdx=()=>Math.max(0,cards.length-perView);const buildDots=()=>{dotsWrap.innerHTML='';for(let i=0;i<=maxIdx();i++){const d=document.createElement('button');d.className='testi-dot'+(i===index?' active':'');d.setAttribute('aria-label',`Slide ${i+1}`);d.addEventListener('click',()=>goTo(i));dotsWrap.appendChild(d);}};const update=()=>{const cw=cards[0].getBoundingClientRect().width;gsap.to(track,{x:-(index*(cw+18)),duration:0.5,ease:'power3.out'});Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active',i===index));};const goTo=i=>{index=Math.min(Math.max(i,0),maxIdx());update();};document.getElementById('testiPrev')?.addEventListener('click',()=>goTo(index-1));document.getElementById('testiNext')?.addEventListener('click',()=>goTo(index+1));let auto=setInterval(()=>goTo(index>=maxIdx()?0:index+1),5000);track.closest('.testimonials-slider').addEventListener('mouseenter',()=>clearInterval(auto));track.closest('.testimonials-slider').addEventListener('mouseleave',()=>{auto=setInterval(()=>goTo(index>=maxIdx()?0:index+1),5000);});window.addEventListener('resize',()=>{const nv=window.innerWidth<=768?1:3;if(nv!==perView){perView=nv;index=0;buildDots();}update();},{passive:true});buildDots();update();
+  }
+  </script>
+</body>
+</html>

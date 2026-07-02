@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — LATAWA REAL ESTATE</title>
+  <meta name="description" content="Get in touch with Latawa Real Estate. Call Inder or Vivek Latawa, or send a message and we'll respond within 24 hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .contact-full-section { padding: 80px 0 110px; background: var(--dark2); }
+    .contact-full-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+    .contact-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .contact-card { padding: 24px 26px; border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius-sm); display: flex; align-items: flex-start; gap: 16px; background: rgba(255,255,255,0.03); transition: var(--transition); }
+    .contact-card:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); }
+    .contact-card-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card-icon svg { width: 16px; height: 16px; }
+    .contact-card-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 4px; }
+    .contact-card-value { font-size: 14px; font-weight: 600; color: white; }
+    .contact-card-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+    .hours-card { padding: 24px 26px; border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius-sm); background: rgba(255,255,255,0.03); }
+    .hours-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 14px; font-weight: 600; }
+    .hours-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: rgba(255,255,255,0.5); }
+    .hours-time { color: rgba(255,255,255,0.75); font-weight: 500; }
+    /* Form wrapper */
+    .contact-form-section { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 44px 40px; }
+    .form-heading { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: white; margin-bottom: 8px; }
+    .form-sub { font-size: var(--fs-body-sm); color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+    /* Switcher */
+    .enquiry-switcher { display: flex; gap: 4px; background: rgba(255,255,255,0.04); border-radius: 100px; padding: 4px; margin-bottom: 26px; }
+    .switcher-tab { flex: 1; text-align: center; padding: 10px 6px; border-radius: 100px; cursor: pointer; transition: var(--transition); border: none; background: transparent; }
+    .switcher-tab.active { background: white; }
+    .switcher-tab-label { font-size: var(--fs-body-sm); font-weight: 600; color: rgba(255,255,255,0.55); }
+    .switcher-tab.active .switcher-tab-label { color: black; }
+    @media (max-width: 1100px) { .contact-full-grid { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 768px) { .contact-form-section { padding: 28px 22px; } }
+  </style>
+</head>
+<body>
+<div id="page-content">
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1800&q=80&fit=crop" alt="Contact Latawa Real Estate" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>Contact</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line">Let's start</span><br/>
+      <span class="hero-title-line">your journey <em>today</em></span>
+    </h1>
+    <p class="page-hero-sub">Whether you have a specific property in mind or are just starting to explore — we're here. No pressure, no scripts, just honest conversation.</p>
+  </div>
+</section>
+
+<section class="contact-full-section">
+  <div class="container contact-full-grid">
+    <div>
+      <p class="section-eyebrow reveal-up">Reach Us</p>
+      <h2 class="section-heading reveal-up">Talk to Inder<br/>or <em>Vivek</em></h2>
+      <p style="font-size:var(--fs-body);color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:28px;" class="reveal-up">You'll always speak directly with one of our principals — never a junior agent. We respond to all enquiries within a few hours.</p>
+      <div class="contact-cards reveal-up">
+        <a href="tel:+919988500421" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.36 12 19.79 19.79 0 011.3 3.44 2 2 0 013.28 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="white" stroke-width="1.5"/></svg></div>
+          <div><p class="contact-card-label">Inder Latawa (Founder)</p><p class="contact-card-value">+91 98885 00421</p><p class="contact-card-sub">Residential &amp; General</p></div>
+        </a>
+        <a href="tel:+919814978768" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.36 12 19.79 19.79 0 011.3 3.44 2 2 0 013.28 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="white" stroke-width="1.5"/></svg></div>
+          <div><p class="contact-card-label">Vivek Latawa (Director)</p><p class="contact-card-value">+91 98149 78768</p><p class="contact-card-sub">Commercial &amp; Investment</p></div>
+        </a>
+        <a href="mailto:info@latawarealestate.com" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="white" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="white" stroke-width="1.5"/></svg></div>
+          <div><p class="contact-card-label">Email</p><p class="contact-card-value">info@latawarealestate.com</p><p class="contact-card-sub">Reply within 24 hours</p></div>
+        </a>
+        <div class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="white" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="white" stroke-width="1.5"/></svg></div>
+          <div><p class="contact-card-label">Office</p><p class="contact-card-value">VPO Firozpur, Punjab</p><p class="contact-card-sub">Near Mata Mansa Devi Temple</p></div>
+        </div>
+      </div>
+      <div class="hours-card reveal-up">
+        <p class="hours-title">Office Hours</p>
+        <div class="hours-row"><span class="hours-day">Monday – Saturday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 4:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">WhatsApp</span><span class="hours-time">Available 24/7</span></div>
+      </div>
+    </div>
+
+    <div class="contact-form-section reveal-up">
+      <h3 class="form-heading">Send a Message</h3>
+      <p class="form-sub">Fill in your details and we'll get back to you within a few hours.</p>
+      <div class="enquiry-switcher">
+        <button class="switcher-tab active" data-type="buy"><span class="switcher-tab-label">Buy / Invest</span></button>
+        <button class="switcher-tab" data-type="sell"><span class="switcher-tab-label">Sell / Rent Out</span></button>
+        <button class="switcher-tab" data-type="advice"><span class="switcher-tab-label">General Advice</span></button>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="hidden" name="enquiry_type" id="enquiryType" value="buy" />
+        <div class="form-group"><input type="text" name="name" placeholder="Your Full Name" required class="form-input" /></div>
+        <div class="form-group"><input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required class="form-input" /></div>
+        <div class="form-group"><input type="email" name="email" placeholder="Email Address (optional)" class="form-input" /></div>
+        <div class="form-group">
+          <select name="budget" class="form-input form-select">
+            <option value="" disabled selected>Budget Range</option>
+            <option>Under ₹50 Lakh</option>
+            <option>₹50 L – ₹1 Cr</option>
+            <option>₹1 Cr – ₹2 Cr</option>
+            <option>₹2 Cr – ₹5 Cr</option>
+            <option>Above ₹5 Cr</option>
+            <option>NRI / Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select name="location_pref" class="form-input form-select">
+            <option value="" disabled selected>Preferred Location</option>
+            <option>Chandigarh</option>
+            <option>Mohali</option>
+            <option>Ludhiana</option>
+            <option>Amritsar</option>
+            <option>Firozpur</option>
+            <option>Mansa</option>
+            <option>Other / Flexible</option>
+          </select>
+        </div>
+        <div class="form-group"><textarea name="message" placeholder="Tell us more about your requirements..." rows="4" class="form-input"></textarea></div>
+        <button type="submit" class="btn-primary full-width">Send Enquiry →</button>
+        <p style="font-size:10px;color:rgba(255,255,255,0.2);text-align:center;margin-top:12px;">By submitting you agree to our <a href="/privacy-policy/" style="color:rgba(255,255,255,0.35);text-decoration:underline;">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0;background:var(--dark3);">
+  <div class="container" style="padding:0;">
+    <div style="border-radius:0;overflow:hidden;height:420px;border-top:1px solid rgba(255,255,255,0.06);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54897.82246905491!2d74.56789012167969!3d30.914440000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917c3b2d6ef1547%3A0x7e3f2d3b3b3b3b3b!2sFirozpur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg);opacity:0.7;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Latawa Real Estate Office Location"></iframe>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="/components/loader.js"></script>
+<script>
+window.__pageInit = function() {
+  if (!PREFERS_REDUCED) {
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
+      .to('.page-hero-sub', { opacity:1, y:0, duration:0.7, ease:'power3.out' }, '-=0.35');
+  } else {
+    gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
+  }
+  // Enquiry type switcher
+  document.querySelectorAll('.switcher-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.switcher-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('enquiryType').value = tab.getAttribute('data-type');
+    });
+  });
+};
+</script>
+</body>
+</html>

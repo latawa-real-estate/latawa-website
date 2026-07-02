@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — LATAWA REAL ESTATE</title>
+  <meta name="description" content="From residential sales to commercial advisory, legal assistance, and property management — discover the full range of Latawa Real Estate services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .services-detail-section { padding: 110px 0; background: var(--dark2); }
+    .service-detail-card { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding: 64px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .service-detail-card:last-child { border-bottom: none; }
+    .service-detail-card.reverse { direction: rtl; }
+    .service-detail-card.reverse > * { direction: ltr; }
+    .service-img-wrap { border-radius: var(--radius); overflow: hidden; height: 380px; }
+    .service-img-wrap img { filter: brightness(0.82); transition: transform 0.7s ease; }
+    .service-img-wrap:hover img { transform: scale(1.04); }
+    .service-detail-num { font-family: var(--font-display); font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 3px; margin-bottom: 10px; }
+    .service-detail-title { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 500; color: white; margin-bottom: 18px; line-height: 1.18; letter-spacing: -0.2px; }
+    .service-detail-title em { font-style: italic; color: var(--accent); }
+    .service-detail-desc { font-size: var(--fs-body); color: rgba(255,255,255,0.5); line-height: 1.85; margin-bottom: 16px; }
+    .service-features { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
+    .service-feature { display: flex; align-items: center; gap: 12px; font-size: var(--fs-body-sm); color: rgba(255,255,255,0.55); }
+    .service-feature::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    /* Packages */
+    .packages-section { padding: 100px 0; background: var(--dark3); }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
+    .package-card { padding: 38px 32px; border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius); background: rgba(255,255,255,0.03); transition: var(--transition); }
+    .package-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); }
+    .package-card.featured { border-color: rgba(201,167,105,0.35); background: rgba(201,167,105,0.06); }
+    .package-badge { font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 18px; display: block; }
+    .package-name { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: white; margin-bottom: 6px; }
+    .package-tagline { font-size: var(--fs-body-sm); color: rgba(255,255,255,0.4); margin-bottom: 26px; }
+    .package-list { display: flex; flex-direction: column; gap: 10px; }
+    .package-item { display: flex; align-items: center; gap: 10px; font-size: var(--fs-body-sm); color: rgba(255,255,255,0.55); }
+    .package-item::before { content: '✓'; color: var(--accent); font-size: 11px; font-weight: 700; }
+    @media (max-width: 1100px) { .service-detail-card { grid-template-columns: 1fr; gap: 36px; } .service-detail-card.reverse { direction: ltr; } .packages-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .service-img-wrap { height: 260px; } }
+  </style>
+</head>
+<body>
+<div id="page-content">
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1800&q=80&fit=crop" alt="Latawa Services" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>Services</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line">Every service</span><br/>
+      <span class="hero-title-line">you need <em>under one roof</em></span>
+    </h1>
+    <p class="page-hero-sub">From finding the right property to closing the deal and beyond — Latawa Real Estate walks every step of your investment journey with you.</p>
+  </div>
+</section>
+
+<section class="services-detail-section">
+  <div class="container">
+    <div class="service-detail-card reveal-up">
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop" alt="Residential Sales" />
+      </div>
+      <div>
+        <p class="service-detail-num">01</p>
+        <h2 class="service-detail-title">Residential<br/><em>Sales & Purchase</em></h2>
+        <p class="service-detail-desc">Whether you're searching for your first home or upgrading to a premium villa, we curate properties matched precisely to your lifestyle, budget, and long-term goals.</p>
+        <p class="service-detail-desc">Our residential portfolio spans apartments, independent houses, builder floors, and villas across Chandigarh, Mohali, Ludhiana, Amritsar, Firozpur, and Mansa.</p>
+        <div class="service-features">
+          <div class="service-feature">Personalised property shortlisting</div>
+          <div class="service-feature">Site visit coordination & accompaniment</div>
+          <div class="service-feature">Price negotiation on your behalf</div>
+          <div class="service-feature">Complete documentation support</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail-card reverse reveal-up">
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop" alt="Commercial Spaces" />
+      </div>
+      <div>
+        <p class="service-detail-num">02</p>
+        <h2 class="service-detail-title">Commercial<br/><em>Spaces</em></h2>
+        <p class="service-detail-desc">Office buildings, retail showrooms, SCOs, plots, and industrial sheds — our commercial division identifies spaces that align with your business model and growth trajectory.</p>
+        <p class="service-detail-desc">Vivek Latawa personally advises on commercial acquisitions, bringing transaction experience that protects you from common market pitfalls.</p>
+        <div class="service-features">
+          <div class="service-feature">Commercial plot and building sourcing</div>
+          <div class="service-feature">ROI and yield analysis</div>
+          <div class="service-feature">Lease structuring and tenant advisory</div>
+          <div class="service-feature">Zoning and approval verification</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail-card reveal-up">
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" alt="Legal Assistance" />
+      </div>
+      <div>
+        <p class="service-detail-num">03</p>
+        <h2 class="service-detail-title">Legal<br/><em>Assistance</em></h2>
+        <p class="service-detail-desc">Real estate transactions in India involve a web of paperwork, approvals, and verifications. We coordinate with trusted legal professionals to ensure your transaction is airtight.</p>
+        <div class="service-features">
+          <div class="service-feature">Title verification and encumbrance check</div>
+          <div class="service-feature">Sale deed and registry coordination</div>
+          <div class="service-feature">RERA compliance checks</div>
+          <div class="service-feature">Power of Attorney support for NRIs</div>
+          <div class="service-feature">Mutation and stamp duty guidance</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail-card reverse reveal-up">
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80&fit=crop" alt="Investment Advisory" />
+      </div>
+      <div>
+        <p class="service-detail-num">04</p>
+        <h2 class="service-detail-title">Investment<br/><em>Advisory</em></h2>
+        <p class="service-detail-desc">Not all real estate is equal. Our advisory service maps out high-appreciation corridors, emerging micro-markets, and undervalued assets that can deliver superior returns for your portfolio.</p>
+        <div class="service-features">
+          <div class="service-feature">Market trend analysis and forecasting</div>
+          <div class="service-feature">Portfolio diversification strategy</div>
+          <div class="service-feature">NRI investment planning</div>
+          <div class="service-feature">Exit strategy and resale advisory</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail-card reveal-up">
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&fit=crop" alt="Property Management" />
+      </div>
+      <div>
+        <p class="service-detail-num">05</p>
+        <h2 class="service-detail-title">Property<br/><em>Management</em></h2>
+        <p class="service-detail-desc">For clients who own properties but don't have the time to manage them — especially NRIs — our property management service ensures your asset is maintained, tenanted, and generating returns.</p>
+        <div class="service-features">
+          <div class="service-feature">Tenant sourcing and screening</div>
+          <div class="service-feature">Rent collection and disbursement</div>
+          <div class="service-feature">Maintenance coordination</div>
+          <div class="service-feature">Monthly reporting and updates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="packages-section">
+  <div class="container">
+    <div class="section-header center reveal-up" style="max-width:560px;">
+      <p class="section-eyebrow">Our Packages</p>
+      <h2 class="section-heading">Choose what fits<br/><em>your needs</em></h2>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card reveal-up">
+        <span class="package-badge">Starter</span>
+        <h3 class="package-name">Advisory</h3>
+        <p class="package-tagline">For buyers who want expert guidance without full-service handholding.</p>
+        <div class="package-list">
+          <div class="package-item">Market overview & shortlisting</div>
+          <div class="package-item">Up to 5 property site visits</div>
+          <div class="package-item">Basic documentation guidance</div>
+          <div class="package-item">Phone & WhatsApp support</div>
+        </div>
+      </div>
+      <div class="package-card featured reveal-up">
+        <span class="package-badge">Most Popular</span>
+        <h3 class="package-name">Full Service</h3>
+        <p class="package-tagline">End-to-end support from search to registry — our most popular choice.</p>
+        <div class="package-list">
+          <div class="package-item">Everything in Advisory</div>
+          <div class="package-item">Unlimited site visits</div>
+          <div class="package-item">Legal & documentation coordination</div>
+          <div class="package-item">Price negotiation on your behalf</div>
+          <div class="package-item">Registry day accompaniment</div>
+          <div class="package-item">60 days post-purchase support</div>
+        </div>
+      </div>
+      <div class="package-card reveal-up">
+        <span class="package-badge">Premium</span>
+        <h3 class="package-name">Concierge</h3>
+        <p class="package-tagline">For NRI investors and high-value portfolios requiring bespoke handling.</p>
+        <div class="package-list">
+          <div class="package-item">Everything in Full Service</div>
+          <div class="package-item">Dedicated relationship manager</div>
+          <div class="package-item">Video property walkthroughs</div>
+          <div class="package-item">NRI POA & remote processing</div>
+          <div class="package-item">Ongoing portfolio management</div>
+          <div class="package-item">Priority access to off-market listings</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="/contact-us/" class="btn-primary">Discuss Your Requirements →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-mesh"></div>
+  <div class="container cta-inner reveal-up">
+    <p class="section-eyebrow" style="justify-content:center;">Not Sure Where to Start?</p>
+    <h2 class="cta-heading">Let's talk about<br/><em>your goals</em></h2>
+    <p class="cta-sub">Every client's situation is unique. A 15-minute conversation with Inder or Vivek is all it takes to map the right path forward.</p>
+    <div class="cta-btns">
+      <a href="/contact-us/" class="btn-primary">Book a Free Consultation</a>
+      <a href="tel:+919988500421" class="btn-ghost">Call Now</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="/components/loader.js"></script>
+<script>
+window.__pageInit = function() {
+  if (!PREFERS_REDUCED) {
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
+      .to('.page-hero-sub', { opacity:1, y:0, duration:0.7, ease:'power3.out' }, '-=0.35');
+  } else {
+    gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
+  }
+};
+</script>
+</body>
+</html>

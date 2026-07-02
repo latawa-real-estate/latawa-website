@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — LATAWA REAL ESTATE</title>
+  <meta name="description" content="Meet Inder and Vivek Latawa — a decade of trust, expertise, and premium real estate across Punjab." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div id="page-content">
+<!-- All content populated from Sanity via JS below -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img id="pageHeroImg" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1800&q=80" alt="About" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>About Us</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line" id="heroTitle1">More than a decade</span><br/>
+      <span class="hero-title-line" id="heroTitle2">of <em>trust built</em></span>
+    </h1>
+    <p class="page-hero-sub" id="heroSub">From a single vision to Punjab&#39;s most trusted real estate name.</p>
+  </div>
+</section>
+</div>
+<script src="/components/loader.js"></script>
+<script>
+window.__pageInit = async function() {
+  if (!PREFERS_REDUCED) {
+    gsap.timeline({delay:0.2})
+      .to(".hero-title-line",{y:"0%",opacity:1,duration:0.9,ease:"power4.out",stagger:0.12})
+      .to(".page-hero-sub",{opacity:1,y:0,duration:0.7,ease:"power3.out"},"-=0.35");
+  } else { gsap.set(".hero-title-line,.page-hero-sub",{opacity:1,y:0}); }
+
+  const [page,team,milestones,values,reasons,stats,contact] = await Promise.all([
+    sanityFetch("*[_type=="aboutPage"][0]{heroTitle1,heroTitle2,heroSubtitle,heroImage,storyImage,storyHeading,storyPara1,storyPara2,missionText,visionText}"),
+    sanityFetch("*[_type=="teamMember"] | order(displayOrder asc){name,role,bio,phone,photo}"),
+    sanityFetch("*[_type=="milestone"] | order(year asc){year,title,description}"),
+    sanityFetch("*[_type=="value"] | order(displayOrder asc){icon,name,description}"),
+    sanityFetch("*[_type=="whyReason"] | order(displayOrder asc){title,description}"),
+    sanityFetch("*[_type=="siteStats"][0]{stat1Number,stat1Label,stat2Number,stat2Label,stat3Number,stat3Label,stat4Number,stat4Label}"),
+    sanityFetch("*[_type=="contactInfo"][0]{founder1Name,founder1Phone}")
+  ]);
+
+  // Build page HTML from Sanity data
+  const pc = document.getElementById("page-content");
+  
+  // Story section
+  const storyImg = (page && page.storyImage) ? sanityImg(page.storyImage,900,80) : "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80";
+  const heroImg  = (page && page.heroImage)  ? sanityImg(page.heroImage,1800,80) : null;
+  if (heroImg) document.getElementById("pageHeroImg").src = heroImg;
+  if (page) {
+    if (page.heroTitle1) document.getElementById("heroTitle1").textContent = page.heroTitle1;
+    if (page.heroTitle2) document.getElementById("heroTitle2").innerHTML   = page.heroTitle2;
+    if (page.heroSubtitle) document.getElementById("heroSub").textContent  = page.heroSubtitle;
+  }
+
+  let html = "";
+
+  // OUR STORY
+  html += "<style>.story-section{padding:110px 0;background:var(--dark)}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}.story-img-frame{border-radius:var(--radius);overflow:hidden;height:500px}.story-img-frame img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:transform .8s}.story-img-frame:hover img{transform:scale(1.04)}.story-eyebrow{font-size:var(--fs-eyebrow);letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;display:flex;align-items:center;gap:10px}.story-eyebrow::before{content:'';width:14px;height:1px;background:var(--accent);display:inline-block}.story-heading{font-family:var(--font-display);font-size:var(--fs-h2);font-weight:500;line-height:1.16;color:white;margin-bottom:22px}.story-heading em{font-style:italic;color:rgba(255,255,255,.42)}.story-para{font-size:var(--fs-body);color:rgba(255,255,255,.52);line-height:1.85;margin-bottom:18px}.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}.mv-card{padding:28px 26px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-sm)}.mv-card.vision{border-color:rgba(201,167,105,.2)}.mv-label{font-size:var(--fs-eyebrow);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:8px;font-weight:600}.mv-text{font-size:var(--fs-body-sm);color:rgba(255,255,255,.48);line-height:1.75}.founders-section{padding:100px 0;background:var(--dark2)}.founders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}.founder-card{padding:36px 32px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);transition:var(--transition)}.founder-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-4px)}.founder-img-wrap{width:80px;height:80px;border-radius:50%;overflow:hidden;margin-bottom:22px;border:2px solid rgba(255,255,255,.12)}.founder-img-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(.82)}.founder-role{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}.founder-name{font-family:var(--font-display);font-size:22px;font-weight:500;color:white;margin-bottom:14px}.founder-bio{font-size:var(--fs-body-sm);color:rgba(255,255,255,.46);line-height:1.8}.founder-contact{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:12px;color:rgba(255,255,255,.45)}.founder-contact a{color:var(--accent)}.timeline-section{padding:100px 0;background:var(--dark3)}.timeline-list{margin-top:52px}.timeline-item{display:grid;grid-template-columns:100px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06)}.timeline-item:last-child{border-bottom:none}.timeline-year{font-family:var(--font-display);font-size:13px;color:var(--accent);font-weight:600;padding-top:4px}.timeline-title{font-family:var(--font-display);font-size:17px;color:white;font-weight:500;margin-bottom:6px}.timeline-desc{font-size:var(--fs-body-sm);color:rgba(255,255,255,.45);line-height:1.75}.values-section{padding:100px 0;background:var(--dark2)}.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}.value-card{padding:34px 28px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);text-align:center;background:rgba(255,255,255,.03);transition:var(--transition)}.value-card:hover{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.06)}.value-icon{font-size:28px;margin-bottom:16px}.value-name{font-family:var(--font-display);font-size:17px;color:white;margin-bottom:8px;font-weight:500}.value-desc{font-size:var(--fs-body-sm);color:rgba(255,255,255,.42);line-height:1.75}.why-section{padding:100px 0;background:var(--dark)}.why-list{margin-top:52px;display:flex;flex-direction:column;gap:2px}.why-row{display:flex;align-items:center;gap:28px;padding:24px 28px;border:1px solid rgba(255,255,255,.07);border-radius:var(--radius-sm);transition:var(--transition)}.why-row:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.13)}.why-num{font-family:var(--font-display);font-size:11px;color:rgba(255,255,255,.2);letter-spacing:2px;min-width:32px}.why-title{font-family:var(--font-display);font-size:17px;color:white;font-weight:500;min-width:200px}.why-desc{font-size:var(--fs-body-sm);color:rgba(255,255,255,.42);line-height:1.7}@media(max-width:1100px){.story-grid{grid-template-columns:1fr}.founders-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}}@media(max-width:768px){.mv-grid{grid-template-columns:1fr}.timeline-item{grid-template-columns:60px 1fr;gap:16px}.why-row{flex-direction:column;align-items:flex-start;gap:8px}.why-title{min-width:auto}}@media(max-width:480px){.values-grid{grid-template-columns:1fr}}</style>";
+
+  // Story
+  const s = page || {};
+  html += `<section class="story-section"><div class="container story-grid"><div class="story-image-wrap reveal-up"><div class="story-img-frame"><img src="${storyImg}" alt="Latawa" /></div></div><div class="story-content reveal-up"><p class="story-eyebrow">Our Story</p><h2 class="story-heading">${s.storyHeading||"Built on integrity,<br/>grown through <em>trust</em>"}</h2><p class="story-para">${s.storyPara1||"Latawa Real Estate was founded by Inder Latawa with a single conviction: that every family deserves a property partner they can trust completely."}</p><p class="story-para">${s.storyPara2||"Today, guided by Vivek Latawa, the firm blends experience with a personal touch that larger agencies simply cannot match."}</p><div class="mv-grid"><div class="mv-card mission reveal-up"><p class="mv-label">Mission</p><p class="mv-text">${s.missionText||"To make premium property ownership accessible, transparent, and rewarding for every client we serve."}</p></div><div class="mv-card vision reveal-up"><p class="mv-label">Vision</p><p class="mv-text">${s.visionText||"To be Punjab's most trusted real estate partner — where every transaction becomes a lifelong relationship."}</p></div></div></div></div></section>`;
+
+  // Founders
+  const founderCards = (team && team.length ? team : [
+    {name:"Inder Latawa",role:"Founder & Principal",bio:"Over a decade of direct experience in Punjab's real estate market.",phone:"+91 98885 00421"},
+    {name:"Vivek Latawa",role:"Director & Advisor",bio:"Leads the investment advisory and commercial division.",phone:"+91 98149 78768"}
+  ]).map(m => {
+    const img = m.photo ? sanityImg(m.photo,200,80) : "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop&facepad=3";
+    const ph = m.phone||'';
+    return `<div class="founder-card reveal-up"><div class="founder-img-wrap"><img src="${img}" alt="${m.name}" /></div><p class="founder-role">${m.role||''}</p><h3 class="founder-name">${m.name}</h3><p class="founder-bio">${m.bio||''}</p>${ph?'<div class="founder-contact"><a href="tel:'+ph.replace(/\s/g,'">')+ph+'</a></div>':''}</div>`;
+  }).join('');
+  html += `<section class="founders-section"><div class="container"><div class="section-header center reveal-up"><p class="section-eyebrow">Our Team</p><h2 class="section-heading">The People Behind<br/><em>Every Deal</em></h2></div><div class="founders-grid">${founderCards}</div></div></section>`;
+
+  // Timeline
+  const timelineItems = (milestones && milestones.length ? milestones : [
+    {year:'2014',title:'Founded in Firozpur',description:'Inder Latawa establishes the firm.'},
+    {year:'2016',title:'Expanded to Chandigarh & Mohali',description:'Growing reputation leads to listings across Punjab.'},
+    {year:'2018',title:'Commercial Division Launched',description:'Vivek Latawa joins to head commercial real estate.'},
+    {year:'2020',title:'100+ Families Served',description:'A landmark milestone of trust and service.'},
+    {year:'2026',title:'600+ Properties Portfolio',description:'Cementing Latawa as a leading regional name.'}
+  ]).map(t => `<div class="timeline-item reveal-up"><div class="timeline-year">${t.year}</div><div><h3 class="timeline-title">${t.title}</h3><p class="timeline-desc">${t.description||''}</p></div></div>`).join('');
+  html += `<section class="timeline-section"><div class="container"><div class="section-header reveal-up"><p class="section-eyebrow">Our Journey</p><h2 class="section-heading">A Decade of<br/><em>Milestones</em></h2></div><div class="timeline-list">${timelineItems}</div></div></section>`;
+
+  // Values
+  const valueCards = (values && values.length ? values : [
+    {icon:'🤝',name:'Trust',description:'Every commitment we make is kept.'},
+    {icon:'💎',name:'Value',description:'We treat your money with the same respect as our own.'},
+    {icon:'📈',name:'Growth',description:'We identify high-appreciation corridors that deliver real returns.'},
+    {icon:'🛡️',name:'Integrity',description:'Legal clarity, honest pricing, and zero hidden costs.'}
+  ]).map(v => `<div class="value-card reveal-up"><div class="value-icon">${v.icon||'🏠'}</div><h3 class="value-name">${v.name}</h3><p class="value-desc">${v.description||''}</p></div>`).join('');
+  html += `<section class="values-section"><div class="container"><div class="section-header center reveal-up"><p class="section-eyebrow">Our Values</p><h2 class="section-heading">What We Stand<br/><em>For</em></h2></div><div class="values-grid">${valueCards}</div></div></section>`;
+
+  // Why Latawa
+  const whyRows = (reasons && reasons.length ? reasons : [
+    {title:'Direct Principal Access',description:'Every client speaks directly with Inder or Vivek.'},
+    {title:'Vetted Legal Clarity',description:'Every property screened for legal clarity before listing.'},
+    {title:'12+ Years Local Knowledge',description:'Deep roots mean we know which pockets will appreciate.'},
+    {title:'NRI-Friendly Process',description:'Remote documentation, digital walkthroughs, POA assistance.'}
+  ]).map((r,i) => `<div class="why-row reveal-up"><div class="why-num">0${i+1}</div><div class="why-title">${r.title}</div><div class="why-desc">${r.description||''}</div></div>`).join('');
+  html += `<section class="why-section"><div class="container"><div class="section-header reveal-up"><p class="section-eyebrow">Why Latawa</p><h2 class="section-heading">Reasons Clients<br/><em>Choose Us</em></h2></div><div class="why-list">${whyRows}</div></div></section>`;
+
+  // Stats
+  const st = stats || {};
+  html += `<section class="stats-section"><div class="container"><div class="stats-grid"><div class="stat-card reveal-up"><p class="stat-num">${st.stat1Number||600}<span>+</span></p><p class="stat-label">${st.stat1Label||'Properties'}</p></div><div class="stat-card reveal-up"><p class="stat-num">${st.stat2Number||120}<span>+</span></p><p class="stat-label">${st.stat2Label||'Happy Clients'}</p></div><div class="stat-card reveal-up"><p class="stat-num">${st.stat3Number||12}<span>+</span></p><p class="stat-label">${st.stat3Label||'Years'}</p></div><div class="stat-card reveal-up"><p class="stat-num">${st.stat4Number||65}<span>+</span></p><p class="stat-label">${st.stat4Label||'Projects'}</p></div></div></div></section>`;
+
+  // CTA
+  const phone1 = (contact && contact.founder1Phone) || '+91 98885 00421';
+  html += `<section class="cta-section"><div class="cta-mesh"></div><div class="container cta-inner reveal-up"><p class="section-eyebrow" style="justify-content:center;">Work With Us</p><h2 class="cta-heading">Ready to invest with<br/><em>people you trust?</em></h2><p class="cta-sub">Start a conversation today — no pressure, just honest guidance.</p><div class="cta-btns"><a href="/contact-us/" class="btn-primary">Get In Touch</a><a href="tel:${phone1.replace(/\s/g,'')}" class="btn-ghost">Call ${contact?.founder1Name||'Us'}</a></div></div></section>`;
+
+  pc.insertAdjacentHTML('beforeend', html);
+  if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+};
+</script>
+</body>
+</html>

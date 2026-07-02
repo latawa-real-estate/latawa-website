@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — LATAWA REAL ESTATE</title>
+  <meta name="description" content="Explore completed and ongoing real estate projects by Latawa Real Estate across Punjab." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .projects-section { padding: 80px 0 110px; background: var(--dark2); }
+    .project-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { border-radius: var(--radius); overflow: hidden; background: var(--dark3); border: 1px solid rgba(255,255,255,0.07); transition: var(--transition); }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15); box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+    .project-card.is-hidden { display: none; }
+    .project-img-wrap { position: relative; height: 260px; overflow: hidden; }
+    .project-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: transform 0.6s ease, filter 0.4s ease; }
+    .project-card:hover .project-img-wrap img { transform: scale(1.06); filter: brightness(0.95); }
+    .project-status { position: absolute; top: 12px; right: 12px; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding: 5px 12px; border-radius: 100px; backdrop-filter: blur(12px); }
+    .project-status.completed { background: rgba(0,200,120,0.2); border: 1px solid rgba(0,200,120,0.35); color: #6ef5b8; }
+    .project-status.ongoing   { background: rgba(201,167,105,0.2); border: 1px solid rgba(201,167,105,0.4); color: var(--accent); }
+    .project-body { padding: 22px 24px; }
+    .project-type { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 600; }
+    .project-name { font-family: var(--font-display); font-size: 18px; font-weight: 500; color: white; margin-bottom: 4px; }
+    .project-loc { font-size: 11px; color: rgba(255,255,255,0.32); margin-bottom: 14px; }
+    .project-meta { display: flex; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .project-meta-item { font-size: 10.5px; color: rgba(255,255,255,0.35); }
+    .project-meta-item strong { display: block; font-size: 12px; color: rgba(255,255,255,0.65); font-weight: 600; margin-bottom: 2px; }
+    /* Testimonial mini */
+    .projects-testi { padding: 80px 0; background: var(--dark3); }
+    .testi-mini-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 48px; }
+    .testi-mini { padding: 28px 26px; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); background: rgba(255,255,255,0.03); }
+    .testi-mini-text { font-size: var(--fs-body-sm); color: rgba(255,255,255,0.52); line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+    .testi-mini-author { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); }
+    .testi-mini-role { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+    @media (max-width: 1100px) { .project-grid { grid-template-columns: repeat(2,1fr); } .testi-mini-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="page-content">
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=80&fit=crop" alt="Latawa Projects" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>Projects</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line">Spaces we've</span><br/>
+      <span class="hero-title-line"><em>brought to life</em></span>
+    </h1>
+    <p class="page-hero-sub">A curated look at our completed and ongoing projects across Punjab — from intimate family homes to large-scale commercial developments.</p>
+  </div>
+</section>
+
+<section class="projects-section">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="project-filters" id="projectFilters">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="residential">Residential</button>
+        <button class="filter-tab" data-filter="commercial">Commercial</button>
+        <button class="filter-tab" data-filter="farmhouse">Farmhouse</button>
+      </div>
+      <p class="results-count"><strong id="projectCount">8</strong> projects</p>
+    </div>
+    <div class="project-grid" id="projectGrid">
+
+      <div class="project-card reveal-up" data-category="residential">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop" alt="The Meridian Complex" />
+          <span class="project-status completed">Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Residential</p>
+          <h3 class="project-name">The Meridian Complex</h3>
+          <p class="project-loc">📍 Chandigarh, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2022</strong>Year</div>
+            <div class="project-meta-item"><strong>24</strong>Units</div>
+            <div class="project-meta-item"><strong>₹58 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="commercial">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&fit=crop" alt="Latawa Tech Park" />
+          <span class="project-status completed">Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Commercial</p>
+          <h3 class="project-name">Latawa Tech Park</h3>
+          <p class="project-loc">📍 Mohali, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2023</strong>Year</div>
+            <div class="project-meta-item"><strong>12</strong>Offices</div>
+            <div class="project-meta-item"><strong>₹32 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="residential">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop" alt="Skyline Villas" />
+          <span class="project-status ongoing">Ongoing</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Residential</p>
+          <h3 class="project-name">Skyline Villas</h3>
+          <p class="project-loc">📍 Ludhiana, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2024</strong>Year</div>
+            <div class="project-meta-item"><strong>8</strong>Villas</div>
+            <div class="project-meta-item"><strong>₹44 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="farmhouse">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80&fit=crop" alt="Green Acres Farmhouse Estate" />
+          <span class="project-status completed">Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Farmhouse</p>
+          <h3 class="project-name">Green Acres Farmhouse Estate</h3>
+          <p class="project-loc">📍 Mansa, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2021</strong>Year</div>
+            <div class="project-meta-item"><strong>6</strong>Plots</div>
+            <div class="project-meta-item"><strong>₹18 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="commercial">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&fit=crop" alt="Amritsar Retail Hub" />
+          <span class="project-status ongoing">Ongoing</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Commercial</p>
+          <h3 class="project-name">Amritsar Retail Hub</h3>
+          <p class="project-loc">📍 Amritsar, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2025</strong>Year</div>
+            <div class="project-meta-item"><strong>18</strong>Shops</div>
+            <div class="project-meta-item"><strong>₹22 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="residential">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80&fit=crop" alt="Horizon Residency" />
+          <span class="project-status completed">Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Residential</p>
+          <h3 class="project-name">Horizon Residency</h3>
+          <p class="project-loc">📍 Firozpur, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2023</strong>Year</div>
+            <div class="project-meta-item"><strong>36</strong>Flats</div>
+            <div class="project-meta-item"><strong>₹28 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="farmhouse">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&fit=crop" alt="Riverside Retreat" />
+          <span class="project-status completed">Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Farmhouse</p>
+          <h3 class="project-name">Riverside Retreat</h3>
+          <p class="project-loc">📍 Firozpur, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2022</strong>Year</div>
+            <div class="project-meta-item"><strong>4</strong>Plots</div>
+            <div class="project-meta-item"><strong>₹9 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="residential">
+        <div class="project-img-wrap">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80&fit=crop" alt="Crown Estate Phase II" />
+          <span class="project-status ongoing">Ongoing</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">Residential</p>
+          <h3 class="project-name">Crown Estate Phase II</h3>
+          <p class="project-loc">📍 Amritsar, Punjab</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><strong>2025</strong>Year</div>
+            <div class="project-meta-item"><strong>10</strong>Villas</div>
+            <div class="project-meta-item"><strong>₹52 Cr</strong>Value</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="projects-testi">
+  <div class="container">
+    <div class="section-header center reveal-up" style="max-width:540px;">
+      <p class="section-eyebrow">Client Words</p>
+      <h2 class="section-heading">What our project<br/><em>clients say</em></h2>
+    </div>
+    <div class="testi-mini-grid">
+      <div class="testi-mini reveal-up">
+        <p class="testi-mini-text">"We invested in Latawa Tech Park on Vivek's advice in 2021 — the value has grown nearly 40% since. Best investment decision we ever made."</p>
+        <div><p class="testi-mini-author">Gurpreet Dhillon</p><p class="testi-mini-role">Commercial Investor, Mohali</p></div>
+      </div>
+      <div class="testi-mini reveal-up">
+        <p class="testi-mini-text">"Bought our villa at Skyline Villas through Latawa — every single promise they made was delivered. The legal clarity alone was worth it."</p>
+        <div><p class="testi-mini-author">Harjeet Kaur</p><p class="testi-mini-role">Homeowner, Ludhiana</p></div>
+      </div>
+      <div class="testi-mini reveal-up">
+        <p class="testi-mini-text">"As an NRI, I was nervous about buying remotely. Inder ji and his team made every step completely transparent. I can trust them completely."</p>
+        <div><p class="testi-mini-author">Sukhwinder Brar</p><p class="testi-mini-role">NRI Investor, Canada</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-mesh"></div>
+  <div class="container cta-inner reveal-up">
+    <p class="section-eyebrow" style="justify-content:center;">Be Part of Our Next Project</p>
+    <h2 class="cta-heading">Invest in <em>something real</em></h2>
+    <p class="cta-sub">Get early access to upcoming project launches and off-market investment opportunities by registering your interest today.</p>
+    <div class="cta-btns">
+      <a href="/contact-us/" class="btn-primary">Register Interest</a>
+      <a href="/properties/" class="btn-ghost">Browse Properties</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="/components/loader.js"></script>
+<script>
+window.__pageInit = function() {
+  if (!PREFERS_REDUCED) {
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
+      .to('.page-hero-sub', { opacity:1, y:0, duration:0.7, ease:'power3.out' }, '-=0.35');
+  } else {
+    gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
+  }
+  // Filter tabs
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.project-card');
+  const count = document.getElementById('projectCount');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      let n = 0;
+      cards.forEach(card => {
+        const match = filter==='all' || card.getAttribute('data-category')===filter;
+        card.classList.toggle('is-hidden', !match);
+        if (match) n++;
+      });
+      count.textContent = n;
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+  });
+};
+</script>
+</body>
+</html>
