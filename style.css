@@ -1436,30 +1436,45 @@ textarea.form-input {
 .footer {
   background: var(--black);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 167, 105, 0.55), transparent);
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 64px;
-  padding-top: 64px;
+  grid-template-columns: 1.1fr 2fr;
+  gap: 72px;
+  padding-top: 72px;
   padding-bottom: 48px;
 }
+.footer-brand {
+  padding-right: 48px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
 .footer-logo {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: inline-flex;
 }
 .footer-tagline {
   font-size: var(--fs-micro);
   letter-spacing: 2.5px;
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(201, 167, 105, 0.85);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   margin-top: 2px;
+  font-weight: 600;
 }
 .footer-about {
   font-size: var(--fs-body-sm);
-  color: rgba(255, 255, 255, 0.3);
-  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.8;
   max-width: 290px;
 }
 .footer-links-wrap {
@@ -1468,30 +1483,40 @@ textarea.form-input {
   gap: 32px;
 }
 .footer-col-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 9.5px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  margin-bottom: 18px;
+  color: var(--accent);
+  margin-bottom: 20px;
   font-weight: 600;
+}
+.footer-col-title::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background: var(--accent);
+  display: inline-block;
 }
 .footer-col ul {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 11px;
 }
 .footer-col ul li,
 .footer-col ul a {
   font-size: var(--fs-body-sm);
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.56);
   transition: color 0.3s;
 }
 .footer-col ul a:hover {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--accent);
 }
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 20px 40px;
+  border-top: 1px solid rgba(201, 167, 105, 0.12);
+  padding: 22px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1499,7 +1524,7 @@ textarea.form-input {
 .footer-bottom p,
 .footer-credit {
   font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.32);
   letter-spacing: 0.4px;
 }
 .footer-legal-links {
@@ -1508,11 +1533,11 @@ textarea.form-input {
 }
 .footer-legal-links a {
   font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.38);
   transition: color 0.25s;
 }
 .footer-legal-links a:hover {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--accent);
 }
 
 /* =============================================
@@ -1867,6 +1892,12 @@ textarea.form-input {
   .footer-top {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  .footer-brand {
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
   .footer-links-wrap {
     grid-template-columns: repeat(2, 1fr);
