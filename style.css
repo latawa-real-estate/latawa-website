@@ -1445,7 +1445,12 @@ textarea.form-input {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 167, 105, 0.55), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 167, 105, 0.55),
+    transparent
+  );
 }
 .footer-top {
   display: grid;
@@ -1892,11 +1897,12 @@ textarea.form-input {
   .footer-top {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding-top: 20px;
   }
   .footer-brand {
     padding-right: 0;
     border-right: none;
-    padding-bottom: 32px;
+    padding-bottom: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
   .footer-links-wrap {
