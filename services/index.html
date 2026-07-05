@@ -47,6 +47,7 @@
     .service-img-wrap img { filter: brightness(0.82); transition: transform 0.7s ease; }
     .service-img-wrap:hover img { transform: scale(1.04); }
     .service-detail-num { font-family: var(--font-display); font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 3px; margin-bottom: 10px; }
+    .service-detail-tagline { font-size: 11px; letter-spacing: 1px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
     .service-detail-title { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 500; color: white; margin-bottom: 18px; line-height: 1.18; letter-spacing: -0.2px; }
     .service-detail-title em { font-style: italic; color: var(--accent); }
     .service-detail-desc { font-size: var(--fs-body); color: rgba(255,255,255,0.5); line-height: 1.85; margin-bottom: 16px; }
@@ -97,95 +98,7 @@
 </section>
 
 <section class="services-detail-section">
-  <div class="container">
-    <div class="service-detail-card reveal-up">
-      <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop" alt="Residential Sales" />
-      </div>
-      <div>
-        <p class="service-detail-num">01</p>
-        <h2 class="service-detail-title">Residential<br/><em>Sales & Purchase</em></h2>
-        <p class="service-detail-desc">Whether you're searching for your first home or upgrading to a premium villa, we curate properties matched precisely to your lifestyle, budget, and long-term goals.</p>
-        <p class="service-detail-desc">Our residential portfolio spans apartments, independent houses, builder floors, and villas across Chandigarh, Mohali, Ludhiana, Amritsar, Firozpur, and Mansa.</p>
-        <div class="service-features">
-          <div class="service-feature">Personalised property shortlisting</div>
-          <div class="service-feature">Site visit coordination & accompaniment</div>
-          <div class="service-feature">Price negotiation on your behalf</div>
-          <div class="service-feature">Complete documentation support</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-detail-card reverse reveal-up">
-      <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop" alt="Commercial Spaces" />
-      </div>
-      <div>
-        <p class="service-detail-num">02</p>
-        <h2 class="service-detail-title">Commercial<br/><em>Spaces</em></h2>
-        <p class="service-detail-desc">Office buildings, retail showrooms, SCOs, plots, and industrial sheds — our commercial division identifies spaces that align with your business model and growth trajectory.</p>
-        <p class="service-detail-desc">Vivek Latawa personally advises on commercial acquisitions, bringing transaction experience that protects you from common market pitfalls.</p>
-        <div class="service-features">
-          <div class="service-feature">Commercial plot and building sourcing</div>
-          <div class="service-feature">ROI and yield analysis</div>
-          <div class="service-feature">Lease structuring and tenant advisory</div>
-          <div class="service-feature">Zoning and approval verification</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-detail-card reveal-up">
-      <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" alt="Legal Assistance" />
-      </div>
-      <div>
-        <p class="service-detail-num">03</p>
-        <h2 class="service-detail-title">Legal<br/><em>Assistance</em></h2>
-        <p class="service-detail-desc">Real estate transactions in India involve a web of paperwork, approvals, and verifications. We coordinate with trusted legal professionals to ensure your transaction is airtight.</p>
-        <div class="service-features">
-          <div class="service-feature">Title verification and encumbrance check</div>
-          <div class="service-feature">Sale deed and registry coordination</div>
-          <div class="service-feature">RERA compliance checks</div>
-          <div class="service-feature">Power of Attorney support for NRIs</div>
-          <div class="service-feature">Mutation and stamp duty guidance</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-detail-card reverse reveal-up">
-      <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80&fit=crop" alt="Investment Advisory" />
-      </div>
-      <div>
-        <p class="service-detail-num">04</p>
-        <h2 class="service-detail-title">Investment<br/><em>Advisory</em></h2>
-        <p class="service-detail-desc">Not all real estate is equal. Our advisory service maps out high-appreciation corridors, emerging micro-markets, and undervalued assets that can deliver superior returns for your portfolio.</p>
-        <div class="service-features">
-          <div class="service-feature">Market trend analysis and forecasting</div>
-          <div class="service-feature">Portfolio diversification strategy</div>
-          <div class="service-feature">NRI investment planning</div>
-          <div class="service-feature">Exit strategy and resale advisory</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-detail-card reveal-up">
-      <div class="service-img-wrap">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&fit=crop" alt="Property Management" />
-      </div>
-      <div>
-        <p class="service-detail-num">05</p>
-        <h2 class="service-detail-title">Property<br/><em>Management</em></h2>
-        <p class="service-detail-desc">For clients who own properties but don't have the time to manage them — especially NRIs — our property management service ensures your asset is maintained, tenanted, and generating returns.</p>
-        <div class="service-features">
-          <div class="service-feature">Tenant sourcing and screening</div>
-          <div class="service-feature">Rent collection and disbursement</div>
-          <div class="service-feature">Maintenance coordination</div>
-          <div class="service-feature">Monthly reporting and updates</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="container" id="servicesDetailWrap"></div>
 </section>
 
 <section class="packages-section">
@@ -255,7 +168,53 @@
 </div>
 <script src="/components/loader.js"></script>
 <script>
-window.__pageInit = function() {
+// Shown until real services are added in Sanity Studio (Services collection)
+const FALLBACK_SERVICES = [
+  { title:'Residential Sales & Purchase', tagline:'From first home to premium villa', image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop',
+    desc:["Whether you're searching for your first home or upgrading to a premium villa, we curate properties matched precisely to your lifestyle, budget, and long-term goals.",
+          "Our residential portfolio spans apartments, independent houses, builder floors, and villas across Chandigarh, Mohali, Ludhiana, Amritsar, Firozpur, and Mansa."],
+    features:['Personalised property shortlisting','Site visit coordination & accompaniment','Price negotiation on your behalf','Complete documentation support'] },
+  { title:'Commercial Spaces', tagline:'For businesses ready to grow', image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop',
+    desc:["Office buildings, retail showrooms, SCOs, plots, and industrial sheds — our commercial division identifies spaces that align with your business model and growth trajectory.",
+          "Vivek Latawa personally advises on commercial acquisitions, bringing transaction experience that protects you from common market pitfalls."],
+    features:['Commercial plot and building sourcing','ROI and yield analysis','Lease structuring and tenant advisory','Zoning and approval verification'] },
+  { title:'Legal Assistance', tagline:'Airtight paperwork, zero surprises', image:'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop',
+    desc:["Real estate transactions in India involve a web of paperwork, approvals, and verifications. We coordinate with trusted legal professionals to ensure your transaction is airtight."],
+    features:['Title verification and encumbrance check','Sale deed and registry coordination','RERA compliance checks','Power of Attorney support for NRIs','Mutation and stamp duty guidance'] },
+  { title:'Investment Advisory', tagline:'Where smart capital goes', image:'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80&fit=crop',
+    desc:["Not all real estate is equal. Our advisory service maps out high-appreciation corridors, emerging micro-markets, and undervalued assets that can deliver superior returns for your portfolio."],
+    features:['Market trend analysis and forecasting','Portfolio diversification strategy','NRI investment planning','Exit strategy and resale advisory'] },
+  { title:'Property Management', tagline:'Especially built for NRIs', image:'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&fit=crop',
+    desc:["For clients who own properties but don't have the time to manage them — especially NRIs — our property management service ensures your asset is maintained, tenanted, and generating returns."],
+    features:['Tenant sourcing and screening','Rent collection and disbursement','Maintenance coordination','Monthly reporting and updates'] }
+];
+
+function portableTextToParagraphs(blocks) {
+  if (!Array.isArray(blocks)) return [];
+  return blocks.filter(b => b._type === 'block' && b.children).map(b => b.children.map(c => c.text).join(''));
+}
+
+function serviceDetailHTML(s, i) {
+  const num = String(i + 1).padStart(2, '0');
+  const reverseClass = i % 2 === 1 ? ' reverse' : '';
+  const img = s.image && s.image.asset ? sanityImg(s.image, 800, 80) : s.image;
+  const paragraphs = Array.isArray(s.description) ? portableTextToParagraphs(s.description) : (s.desc || []);
+  const descHTML = paragraphs.map(p => `<p class="service-detail-desc">${p}</p>`).join('');
+  const features = (s.features && s.features.length) ? s.features : [];
+  const featuresHTML = features.length ? `<div class="service-features">${features.map(f => `<div class="service-feature">${f}</div>`).join('')}</div>` : '';
+  return `<div class="service-detail-card${reverseClass} reveal-up">
+    <div class="service-img-wrap"><img src="${img}" alt="${s.title || ''}" loading="lazy" /></div>
+    <div>
+      <p class="service-detail-num">${num}</p>
+      ${s.tagline ? `<p class="service-detail-tagline">${s.tagline}</p>` : ''}
+      <h2 class="service-detail-title">${s.title || ''}</h2>
+      ${descHTML}
+      ${featuresHTML}
+    </div>
+  </div>`;
+}
+
+window.__pageInit = async function() {
   if (!PREFERS_REDUCED) {
     const tl = gsap.timeline({ delay: 0.2 });
     tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
@@ -263,6 +222,10 @@ window.__pageInit = function() {
   } else {
     gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
   }
+
+  const services = await sanityFetch(`*[_type=="service"] | order(displayOrder asc){title,tagline,description,image,features}`);
+  const list = (services && services.length) ? services : FALLBACK_SERVICES;
+  document.getElementById('servicesDetailWrap').innerHTML = list.map(serviceDetailHTML).join('');
 };
 </script>
 </body>

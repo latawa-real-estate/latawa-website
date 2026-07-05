@@ -272,13 +272,14 @@
   <script>
   window.__pageInit = async function() {
     // Load Sanity data in parallel
-    const [hero, stats, contact, about, properties, testimonials] = await Promise.all([
+    const [hero, stats, contact, about, properties, testimonials, services] = await Promise.all([
       sanityFetch(`*[_type=="homepage"][0]{eyebrow,headline1,headline2,headline3,subtext,heroBgImage,btnPrimaryLabel,btnPrimaryLink,btnSecondaryLabel,btnSecondaryLink,aboutEyebrow,aboutHeading,aboutPara1,aboutPara2,aboutImage,yearsExperience}`),
       sanityFetch(`*[_type=="siteStats"][0]{stat1Number,stat1Label,stat2Number,stat2Label,stat3Number,stat3Label,stat4Number,stat4Label}`),
       sanityFetch(`*[_type=="contactInfo"][0]{founder1Name,founder1Phone,founder2Name,founder2Phone,address}`),
       sanityFetch(`*[_type=="homepage"][0]{aboutEyebrow,aboutHeading,aboutPara1,aboutPara2,aboutImage,yearsExperience}`),
       sanityFetch(`*[_type=="property" && featured==true] | order(displayOrder asc)[0...6]{name,location,price,specs,badge,category,mainImage}`),
-      sanityFetch(`*[_type=="testimonial" && active!=false] | order(_createdAt desc)[0...6]{clientName,role,quote,rating,initials}`)
+      sanityFetch(`*[_type=="testimonial" && active!=false] | order(_createdAt desc)[0...6]{clientName,role,quote,rating,initials}`),
+      sanityFetch(`*[_type=="service"] | order(displayOrder asc)[0...6]{title,tagline,icon}`)
     ]);
 
     // -- Hero --
@@ -340,6 +341,14 @@
           </div>
         </div>`;
       }).join('');
+    }
+
+    // -- Why Choose Us / Services --
+    if (services && services.length) {
+      const grid = document.getElementById('servicesGrid');
+      if (grid) {
+        grid.innerHTML = services.map(s => `<div class="service-card glass-card"><div class="service-icon">${s.icon || '<svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="15" stroke="white" stroke-width="1.5"/></svg>'}</div><h3 class="service-title">${s.title||''}</h3><p class="service-desc">${s.tagline||''}</p></div>`).join('');
+      }
     }
 
     // -- Testimonials --
