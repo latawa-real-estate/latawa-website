@@ -84,7 +84,7 @@
 
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1800&q=80&fit=crop" alt="Latawa Services" />
+    <img id="pageHeroImg" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1800&q=80&fit=crop" alt="Latawa Services" />
     <div class="page-hero-overlay"></div>
   </div>
   <div class="page-hero-content">
@@ -223,9 +223,16 @@ window.__pageInit = async function() {
     gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
   }
 
-  const services = await sanityFetch(`*[_type=="service"] | order(displayOrder asc){title,tagline,description,image,features}`);
+  const [services, headers] = await Promise.all([
+    sanityFetch(`*[_type=="service"] | order(displayOrder asc){title,tagline,description,image,features}`),
+    sanityFetch(`*[_type=="pageHeaders"][0]{servicesHero}`)
+  ]);
   const list = (services && services.length) ? services : FALLBACK_SERVICES;
   document.getElementById('servicesDetailWrap').innerHTML = list.map(serviceDetailHTML).join('');
+  if (headers && headers.servicesHero) {
+    const url = sanityImg(headers.servicesHero, 1800, 80);
+    if (url) document.getElementById('pageHeroImg').src = url;
+  }
 };
 </script>
 </body>

@@ -82,7 +82,7 @@
 
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=80&fit=crop" alt="Latawa Projects" />
+    <img id="pageHeroImg" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=80&fit=crop" alt="Latawa Projects" />
     <div class="page-hero-overlay"></div>
   </div>
   <div class="page-hero-content">
@@ -191,10 +191,15 @@ window.__pageInit = async function() {
     gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
   }
 
-  const [projects, testimonials] = await Promise.all([
+  const [projects, testimonials, headers] = await Promise.all([
     sanityFetch(`*[_type=="project"] | order(year desc){name,category,status,year,location,units,value,mainImage}`),
-    sanityFetch(`*[_type=="testimonial" && active!=false] | order(_createdAt desc)[0...3]{clientName,role,quote}`)
+    sanityFetch(`*[_type=="testimonial" && active!=false] | order(_createdAt desc)[0...3]{clientName,role,quote}`),
+    sanityFetch(`*[_type=="pageHeaders"][0]{projectsHero}`)
   ]);
+  if (headers && headers.projectsHero) {
+    const url = sanityImg(headers.projectsHero, 1800, 80);
+    if (url) document.getElementById('pageHeroImg').src = url;
+  }
 
   const projectList = (projects && projects.length) ? projects : FALLBACK_PROJECTS;
   document.getElementById('projectGrid').innerHTML = projectList.map(projectCardHTML).join('');

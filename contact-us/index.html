@@ -82,7 +82,7 @@
 
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1800&q=80&fit=crop" alt="Contact Latawa Real Estate" />
+    <img id="pageHeroImg" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1800&q=80&fit=crop" alt="Contact Latawa Real Estate" />
     <div class="page-hero-overlay"></div>
   </div>
   <div class="page-hero-content">
@@ -200,7 +200,14 @@ window.__pageInit = async function() {
     });
   });
 
-  const contact = await sanityFetch(`*[_type=="contactInfo"][0]{founder1Name,founder1Phone,founder2Name,founder2Phone,email,address,hours,whatsapp,mapsEmbed}`);
+  const [contact, headers] = await Promise.all([
+    sanityFetch(`*[_type=="contactInfo"][0]{founder1Name,founder1Phone,founder2Name,founder2Phone,email,address,hours,whatsapp,mapsEmbed}`),
+    sanityFetch(`*[_type=="pageHeaders"][0]{contactHero}`)
+  ]);
+  if (headers && headers.contactHero) {
+    const url = sanityImg(headers.contactHero, 1800, 80);
+    if (url) document.getElementById('pageHeroImg').src = url;
+  }
   if (contact) {
     if (contact.founder1Name || contact.founder1Phone) {
       document.getElementById('cc1Label').textContent = (contact.founder1Name || 'Inder Latawa') + ' (Founder)';

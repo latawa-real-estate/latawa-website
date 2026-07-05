@@ -52,7 +52,7 @@
 
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop" alt="Latawa Properties" />
+    <img id="pageHeroImg" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&fit=crop" alt="Latawa Properties" />
     <div class="page-hero-overlay"></div>
   </div>
   <div class="page-hero-content">
@@ -146,10 +146,17 @@ window.__pageInit = async function() {
     gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
   }
 
-  const properties = await sanityFetch(`*[_type=="property" && status != "sold"] | order(displayOrder asc){name,category,price,location,specs,badge,mainImage}`);
+  const [properties, headers] = await Promise.all([
+    sanityFetch(`*[_type=="property" && status != "sold"] | order(displayOrder asc){name,category,price,location,specs,badge,mainImage}`),
+    sanityFetch(`*[_type=="pageHeaders"][0]{propertiesHero}`)
+  ]);
   const list = (properties && properties.length) ? properties : FALLBACK_PROPERTIES;
   document.getElementById('propertiesGrid').innerHTML = list.map(propCardHTML).join('');
   document.getElementById('resultsNum').textContent = list.length;
+  if (headers && headers.propertiesHero) {
+    const url = sanityImg(headers.propertiesHero, 1800, 80);
+    if (url) document.getElementById('pageHeroImg').src = url;
+  }
 
   // Filter tabs (bound after cards are rendered)
   const tabs = document.querySelectorAll('.filter-tab');
