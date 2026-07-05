@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://latawarealestate.com/sitemap.xml
+Sitemap: https://www.latawarealestate.com/sitemap.xml
