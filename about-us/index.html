@@ -76,7 +76,7 @@ window.__pageInit = async function() {
   ]).map(m => {
     const img = m.photo ? sanityImg(m.photo,200,80) : "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop&facepad=3";
     const ph = m.phone||'';
-    return `<div class="founder-card reveal-up"><div class="founder-img-wrap"><img src="${img}" alt="${m.name}" /></div><p class="founder-role">${m.role||''}</p><h3 class="founder-name">${m.name}</h3><p class="founder-bio">${m.bio||''}</p>${ph?'<div class="founder-contact"><a href="tel:'+ph.replace(/\s/g,'">')+ph+'</a></div>':''}</div>`;
+    return `<div class="founder-card reveal-up"><div class="founder-img-wrap"><img src="${img}" alt="${m.name}" /></div><p class="founder-role">${m.role||''}</p><h3 class="founder-name">${m.name}</h3><p class="founder-bio">${m.bio||''}</p>${ph?`<div class="founder-contact"><a href="tel:${ph.replace(/\s/g,'')}">${ph}</a></div>`:''}</div>`;
   }).join('');
   html += `<section class="founders-section"><div class="container"><div class="section-header center reveal-up"><p class="section-eyebrow">Our Team</p><h2 class="section-heading">The People Behind<br/><em>Every Deal</em></h2></div><div class="founders-grid">${founderCards}</div></div></section>`;
 

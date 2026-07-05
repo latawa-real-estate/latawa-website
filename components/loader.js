@@ -372,8 +372,8 @@ async function boot() {
     if (typeof ScrollToPlugin !== 'undefined') gsap.registerPlugin(ScrollToPlugin);
   }
   await initPreloader();
+  if (typeof window.__pageInit === 'function') await window.__pageInit();
   initScrollReveals();
-  if (typeof window.__pageInit === 'function') window.__pageInit();
 }
 
 document.addEventListener('DOMContentLoaded', boot);
