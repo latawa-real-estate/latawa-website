@@ -172,17 +172,27 @@ async function applyBranding() {
 
 /* =============================================
    PRELOADER
+   Stays visible until real page content (Sanity
+   data, images) is ready — not just a fake timer —
+   so it never fades to reveal half-loaded content.
+   A hard timeout guards against a stuck fetch.
    ============================================= */
-function initPreloader() {
+function initPreloader(readyPromise) {
   return new Promise((resolve) => {
     const preloader = document.getElementById('preloader');
     const fill = document.getElementById('preloaderFill');
     if (!preloader || !fill) { resolve(); return; }
+
+    let dataReady = false;
+    Promise.resolve(readyPromise).catch(() => {}).then(() => { dataReady = true; });
+    setTimeout(() => { dataReady = true; }, 8000);
+
     let progress = 0;
     const step = () => {
-      progress += Math.random() * 20 + 8;
-      if (progress >= 100) {
-        progress = 100; fill.style.width = '100%';
+      const cap = dataReady ? 100 : 90;
+      progress = Math.min(progress + (Math.random() * 20 + 8), cap);
+      fill.style.width = progress + '%';
+      if (progress >= 100 && dataReady) {
         if (typeof gsap !== 'undefined') {
           gsap.to(preloader, { opacity:0, duration:0.6, delay:0.2, onComplete:() => { preloader.style.display='none'; resolve(); }});
         } else {
@@ -190,7 +200,6 @@ function initPreloader() {
         }
         return;
       }
-      fill.style.width = progress + '%';
       setTimeout(step, 120);
     };
     step();
@@ -371,8 +380,9 @@ async function boot() {
     if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
     if (typeof ScrollToPlugin !== 'undefined') gsap.registerPlugin(ScrollToPlugin);
   }
-  await initPreloader();
-  if (typeof window.__pageInit === 'function') await window.__pageInit();
+  const pageInitPromise = typeof window.__pageInit === 'function' ? Promise.resolve(window.__pageInit()) : Promise.resolve();
+  await initPreloader(pageInitPromise);
+  await pageInitPromise;
   initScrollReveals();
 }
 

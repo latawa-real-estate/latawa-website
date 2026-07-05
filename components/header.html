@@ -1,17 +1,9 @@
 <!-- ===== LATAWA REAL ESTATE — shared header component =====
      Injected by components/loader.js on every page.
      Active nav link is set automatically based on window.location.
+     NOTE: the preloader lives inline in each page's <body> (not here),
+     because it must paint before the first async fetch resolves.
      ========================================================= -->
-<div class="preloader" id="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-logo">
-      <img src="/images/latawa-logo.png" alt="LATAWA REAL ESTATE Logo" class="logo-svg-pre"/>
-    </div>
-    <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
-    <p class="preloader-text">LATAWA REAL ESTATE</p>
-  </div>
-</div>
-
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href="/" class="nav-logo">
