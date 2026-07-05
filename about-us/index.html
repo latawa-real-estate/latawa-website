@@ -38,13 +38,13 @@ window.__pageInit = async function() {
   } else { gsap.set(".hero-title-line,.page-hero-sub",{opacity:1,y:0}); }
 
   const [page,team,milestones,values,reasons,stats,contact] = await Promise.all([
-    sanityFetch("*[_type=="aboutPage"][0]{heroTitle1,heroTitle2,heroSubtitle,heroImage,storyImage,storyHeading,storyPara1,storyPara2,missionText,visionText}"),
-    sanityFetch("*[_type=="teamMember"] | order(displayOrder asc){name,role,bio,phone,photo}"),
-    sanityFetch("*[_type=="milestone"] | order(year asc){year,title,description}"),
-    sanityFetch("*[_type=="value"] | order(displayOrder asc){icon,name,description}"),
-    sanityFetch("*[_type=="whyReason"] | order(displayOrder asc){title,description}"),
-    sanityFetch("*[_type=="siteStats"][0]{stat1Number,stat1Label,stat2Number,stat2Label,stat3Number,stat3Label,stat4Number,stat4Label}"),
-    sanityFetch("*[_type=="contactInfo"][0]{founder1Name,founder1Phone}")
+    sanityFetch(`*[_type=="aboutPage"][0]{heroTitle1,heroTitle2,heroSubtitle,heroImage,storyImage,storyHeading,storyPara1,storyPara2,missionText,visionText}`),
+    sanityFetch(`*[_type=="teamMember"] | order(displayOrder asc){name,role,bio,phone,photo}`),
+    sanityFetch(`*[_type=="milestone"] | order(year asc){year,title,description}`),
+    sanityFetch(`*[_type=="value"] | order(displayOrder asc){icon,name,description}`),
+    sanityFetch(`*[_type=="whyReason"] | order(displayOrder asc){title,description}`),
+    sanityFetch(`*[_type=="siteStats"][0]{stat1Number,stat1Label,stat2Number,stat2Label,stat3Number,stat3Label,stat4Number,stat4Label}`),
+    sanityFetch(`*[_type=="contactInfo"][0]{founder1Name,founder1Phone}`)
   ]);
 
   // Build page HTML from Sanity data

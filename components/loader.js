@@ -49,7 +49,7 @@ function sanityImg(imageObj, w, q) {
    ============================================= */
 function getBasePath() {
   const proto = window.location.protocol;
-  if (proto === 'http:' || proto === 'https:') return '';
+  if (proto === 'http:' || proto === 'https:') return '/';
   const parts = window.location.pathname.split('/').filter(Boolean);
   const depth = parts.length > 0 && parts[parts.length-1].includes('.') ? parts.length - 1 : parts.length;
   return depth > 0 ? '../'.repeat(depth) : './';
