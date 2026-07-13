@@ -792,7 +792,7 @@ button {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  height: 520px;
+  height: auto;
 }
 .about-img {
   width: 100%;
@@ -805,6 +805,7 @@ button {
   right: -24px;
   padding: 20px 28px;
   text-align: center;
+  display:none;
 }
 .float-num {
   font-family: var(--font-display);
@@ -1773,7 +1774,7 @@ textarea.form-input {
     gap: 48px;
   }
   .about-img-frame {
-    height: 380px;
+    height: auto;
   }
   .about-float-card {
     right: 0;
