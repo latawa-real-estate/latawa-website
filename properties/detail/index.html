@@ -118,6 +118,16 @@ function metaChip(label, value) {
   return `<span class="pd-meta-chip">${label}: <strong>${value}</strong></span>`;
 }
 
+// description comes back as Sanity portable text (array of blocks)
+function portableTextToPlain(blocks) {
+  if (typeof blocks === 'string') return blocks;
+  if (!Array.isArray(blocks)) return '';
+  return blocks
+    .filter((b) => b._type === 'block' && b.children)
+    .map((b) => b.children.map((c) => c.text).join(''))
+    .join('\n\n');
+}
+
 function pdCardHTML(item) {
   return `<div class="pd-card reveal-up">
     <span class="pd-card-icon">${item.icon || ''}</span>
@@ -170,7 +180,8 @@ window.__pageInit = async function() {
 
   document.title = `${p.name} | Latawa Real Estate`;
   document.getElementById('pageTitle').textContent = `${p.name} | Latawa Real Estate`;
-  if (p.description) document.getElementById('pageDesc').setAttribute('content', p.description.slice(0, 160));
+  const descPlain = portableTextToPlain(p.description);
+  if (descPlain) document.getElementById('pageDesc').setAttribute('content', descPlain.slice(0, 160));
 
   document.getElementById('breadcrumbName').textContent = p.name;
   document.getElementById('pdName').textContent = p.name;
@@ -193,7 +204,7 @@ window.__pageInit = async function() {
     metaChip('Ideal For', p.idealFor),
   ].join('');
 
-  document.getElementById('pdDescription').textContent = p.description || '';
+  document.getElementById('pdDescription').textContent = portableTextToPlain(p.description);
 
   if (p.highlights && p.highlights.length) {
     document.getElementById('pdHighlightsWrap').innerHTML = `
