@@ -53,13 +53,12 @@ src="https://www.facebook.com/tr?id=1817565675877663&ev=PageView&noscript=1"
     .pd-location-blurb { max-width: 760px; color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.75; }
     .pd-hero-placeholder { position: absolute; inset: 0; background: linear-gradient(145deg, var(--dark3) 0%, var(--dark) 100%); }
     .pd-contact-caption { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,0.4); }
-    .pd-sticky-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; display: flex; gap: 1px; background: rgba(0,0,0,0.4); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.1); }
-    .pd-sticky-btn { flex: 1; text-align: center; padding: 16px 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; color: white; text-decoration: none; }
-    .pd-sticky-call { background: rgba(255,255,255,0.06); }
-    .pd-sticky-whatsapp { background: #1ea952; }
+    .pd-sticky-bar { position: fixed; left: 0; right: 0; bottom: 20px; z-index: 1000; display: flex; justify-content: center; gap: 12px; padding: 0 16px; }
+    .pd-sticky-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 100px; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; color: white; text-decoration: none; box-shadow: 0 10px 28px rgba(0,0,0,0.4); }
+    .pd-sticky-call { background: rgba(30,30,30,0.92); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.14); }
+    .pd-sticky-whatsapp { background: #25d366; }
     @media (min-width: 900px) {
-      .pd-sticky-bar { left: auto; right: 32px; bottom: 32px; border-radius: 100px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
-      .pd-sticky-btn { padding: 14px 26px; }
+      .pd-sticky-bar { left: auto; right: 32px; bottom: 32px; padding: 0; }
     }
     @media (max-width: 720px) {
       .pd-grid, .pd-gallery { grid-template-columns: 1fr; }
@@ -126,8 +125,14 @@ src="https://www.facebook.com/tr?id=1817565675877663&ev=PageView&noscript=1"
 
 </div>
 <div id="pdStickyBar" class="pd-sticky-bar" style="display:none;">
-  <a href="tel:" id="pdStickyCallBtn" class="pd-sticky-btn pd-sticky-call">📞 Call</a>
-  <a href="https://wa.me/" id="pdStickyWhatsappBtn" class="pd-sticky-btn pd-sticky-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="tel:" id="pdStickyCallBtn" class="pd-sticky-btn pd-sticky-call">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+    Call
+  </a>
+  <a href="https://wa.me/" id="pdStickyWhatsappBtn" class="pd-sticky-btn pd-sticky-whatsapp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.29-.15-1.71-.84-1.98-.94-.27-.1-.46-.15-.66.15-.2.29-.75.94-.92 1.13-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.15-.15.34-.39.51-.58.17-.2.22-.34.34-.56.11-.22.06-.42-.04-.58-.1-.15-.66-1.6-.91-2.18-.24-.57-.49-.5-.66-.5-.17 0-.36-.02-.56-.02-.2 0-.51.07-.78.36-.27.29-1.03 1.01-1.03 2.46 0 1.45 1.06 2.85 1.2 3.05.15.2 2.06 3.15 5.06 4.29 3 1.14 3 .76 3.54.71.54-.05 1.71-.7 1.95-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34z"/><path d="M12.02 2C6.5 2 2 6.48 2 11.98c0 1.98.58 3.83 1.58 5.4L2 22l4.75-1.53a10.1 10.1 0 0 0 5.27 1.47c5.52 0 10.02-4.48 10.02-9.98C22 6.48 17.5 2 12.02 2zm0 18.1c-1.7 0-3.28-.5-4.6-1.36l-.33-.2-2.83.91.92-2.75-.22-.35a8.06 8.06 0 0 1-1.28-4.37c0-4.48 3.65-8.12 8.14-8.12 4.48 0 8.13 3.64 8.13 8.12 0 4.48-3.65 8.12-8.13 8.12z"/></svg>
+    WhatsApp
+  </a>
 </div>
 <script src="/components/loader.js"></script>
 <script>
