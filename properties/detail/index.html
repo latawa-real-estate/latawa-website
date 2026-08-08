@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1817565675877663');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1817565675877663&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Property Details | Latawa Real Estate</title>
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+  <meta name="description" id="pageDesc" content="Explore property details, amenities and floor plans from Latawa Real Estate." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Latawa Real Estate" />
+  <meta name="theme-color" content="#080808" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Latawa Real Estate" />
+  <meta property="og:image" content="https://www.latawarealestate.com/images/latawa-logo.png" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .pd-section { padding: 90px 0; background: var(--dark2); }
+    .pd-meta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
+    .pd-meta-chip { background: var(--dark3); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 10px 20px; font-size: 13px; color: rgba(255,255,255,0.75); }
+    .pd-meta-chip strong { color: white; font-weight: 600; }
+    .pd-desc { max-width: 760px; color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.75; margin-bottom: 56px; }
+    .pd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
+    .pd-card { background: var(--dark3); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 30px 26px; transition: var(--transition); }
+    .pd-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.16); }
+    .pd-card-icon { font-size: 26px; margin-bottom: 14px; display: block; }
+    .pd-card-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white; margin-bottom: 8px; }
+    .pd-card-text { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .pd-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .pd-gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); }
+    .pd-location-blurb { max-width: 760px; color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.75; }
+    .pd-hero-placeholder { position: absolute; inset: 0; background: linear-gradient(145deg, var(--dark3) 0%, var(--dark) 100%); }
+    @media (max-width: 720px) {
+      .pd-grid, .pd-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">
+      <img src="/images/latawa-logo.png" alt="LATAWA REAL ESTATE Logo" class="logo-svg-pre"/>
+    </div>
+    <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+    <p class="preloader-text">LATAWA REAL ESTATE</p>
+  </div>
+</div>
+<div id="page-content">
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img id="pageHeroImg" alt="Property" style="display:none;" />
+    <div id="pageHeroPlaceholder" class="pd-hero-placeholder"></div>
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><a href="/properties/">Properties</a><span class="breadcrumb-sep">/</span><span id="breadcrumbName">Details</span></div>
+    <h1 class="page-hero-title">
+      <span class="hero-title-line" id="pdName">Property</span><br/>
+      <span class="hero-title-line" id="pdProjectName" style="font-size:0.5em;"></span>
+    </h1>
+    <p class="page-hero-sub" id="pdSubtitle"></p>
+  </div>
+</section>
+
+<section class="pd-section">
+  <div class="container">
+    <div class="pd-meta-row" id="pdMetaRow"></div>
+    <p class="pd-desc" id="pdDescription"></p>
+
+    <div id="pdHighlightsWrap"></div>
+    <div id="pdAmenitiesWrap"></div>
+    <div id="pdGalleryWrap"></div>
+    <div id="pdLocationWrap"></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-mesh"></div>
+  <div class="container cta-inner reveal-up">
+    <p class="section-eyebrow" style="justify-content:center;">📞 Book Your Site Visit</p>
+    <h2 class="cta-heading">Looking for a premium home?<br/><em>Let's talk</em></h2>
+    <p class="cta-sub" id="pdCtaSub">Get complete property details, floor plans and availability.</p>
+    <div class="cta-btns">
+      <a href="/contact-us/" class="btn-primary" id="pdEnquireBtn">Enquire Now</a>
+      <a href="tel:" class="btn-ghost" id="pdCallBtn" style="display:none;">Call Now</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="/components/loader.js"></script>
+<script>
+function metaChip(label, value) {
+  if (!value) return '';
+  return `<span class="pd-meta-chip">${label}: <strong>${value}</strong></span>`;
+}
+
+function pdCardHTML(item) {
+  return `<div class="pd-card reveal-up">
+    <span class="pd-card-icon">${item.icon || ''}</span>
+    <h3 class="pd-card-title">${item.title || ''}</h3>
+    <p class="pd-card-text">${item.text || ''}</p>
+  </div>`;
+}
+
+window.__pageInit = async function() {
+  if (!PREFERS_REDUCED) {
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('.hero-title-line', { y:'0%', opacity:1, duration:0.9, ease:'power4.out', stagger:0.12 })
+      .to('.page-hero-sub', { opacity:1, y:0, duration:0.7, ease:'power3.out' }, '-=0.35');
+  } else {
+    gsap.set('.hero-title-line, .page-hero-sub', { opacity:1, y:0 });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  if (!slug) {
+    window.location.replace('/properties/');
+    return;
+  }
+
+  // Local-only preview path: lets drafts (unpublished Sanity docs) be previewed
+  // on localhost before publishing. Inert on the real deployed site.
+  const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const previewRequested = params.get('preview') === '1';
+
+  let p;
+  if (isLocalPreview && previewRequested) {
+    try {
+      const res = await fetch(`http://localhost:8787/property?slug=${encodeURIComponent(slug)}`);
+      p = await res.json();
+    } catch (e) {
+      console.warn('[preview] proxy fetch failed, falling back to live CDN', e);
+    }
+  }
+  if (!p) {
+    p = await sanityFetch(`*[_type=="property" && slug.current=="${slug}"][0]{
+      name,subtitle,description,projectName,configuration,sizeRange,propertyType,idealFor,
+      location,price,mainImage,gallery,highlights,amenities,locationBlurb,contactName,contactPhone
+    }`);
+  }
+
+  if (!p) {
+    window.location.replace('/properties/');
+    return;
+  }
+
+  document.title = `${p.name} | Latawa Real Estate`;
+  document.getElementById('pageTitle').textContent = `${p.name} | Latawa Real Estate`;
+  if (p.description) document.getElementById('pageDesc').setAttribute('content', p.description.slice(0, 160));
+
+  document.getElementById('breadcrumbName').textContent = p.name;
+  document.getElementById('pdName').textContent = p.name;
+  document.getElementById('pdProjectName').textContent = p.projectName || '';
+  document.getElementById('pdSubtitle').textContent = p.subtitle || '';
+
+  const heroImg = p.mainImage ? sanityImg(p.mainImage, 1800, 80) : null;
+  if (heroImg) {
+    document.getElementById('pageHeroImg').src = heroImg;
+    document.getElementById('pageHeroImg').style.display = '';
+    document.getElementById('pageHeroPlaceholder').style.display = 'none';
+  }
+
+  document.getElementById('pdMetaRow').innerHTML = [
+    metaChip('Configuration', p.configuration),
+    metaChip('Size', p.sizeRange),
+    metaChip('Location', p.location),
+    metaChip('Project', p.projectName),
+    metaChip('Property Type', p.propertyType),
+    metaChip('Ideal For', p.idealFor),
+  ].join('');
+
+  document.getElementById('pdDescription').textContent = p.description || '';
+
+  if (p.highlights && p.highlights.length) {
+    document.getElementById('pdHighlightsWrap').innerHTML = `
+      <div class="section-header" style="margin-bottom:24px;">
+        <p class="section-eyebrow">✨ Why Choose ${p.name}</p>
+      </div>
+      <div class="pd-grid" style="margin-bottom:56px;">${p.highlights.map(pdCardHTML).join('')}</div>`;
+  }
+
+  if (p.amenities && p.amenities.length) {
+    document.getElementById('pdAmenitiesWrap').innerHTML = `
+      <div class="section-header" style="margin-bottom:24px;">
+        <p class="section-eyebrow">🌟 World-Class Amenities</p>
+      </div>
+      <div class="pd-grid" style="margin-bottom:56px;">${p.amenities.map(pdCardHTML).join('')}</div>`;
+  }
+
+  if (p.gallery && p.gallery.length) {
+    document.getElementById('pdGalleryWrap').innerHTML = `
+      <div class="section-header" style="margin-bottom:24px;">
+        <p class="section-eyebrow">📸 Gallery</p>
+      </div>
+      <div class="pd-gallery" style="margin-bottom:56px;">${p.gallery.map(img => `<img src="${sanityImg(img, 700, 80)}" alt="${p.name}" loading="lazy" />`).join('')}</div>`;
+  }
+
+  if (p.locationBlurb) {
+    document.getElementById('pdLocationWrap').innerHTML = `
+      <div class="section-header" style="margin-bottom:24px;">
+        <p class="section-eyebrow">📍 Prime Location</p>
+      </div>
+      <p class="pd-location-blurb">${p.locationBlurb}</p>`;
+  }
+
+  if (p.contactName || p.contactPhone) {
+    const bits = [p.contactName, p.contactPhone].filter(Boolean).join(' — ');
+    document.getElementById('pdCtaSub').textContent = `Get complete property details, floor plans and availability. ${bits}`;
+  }
+  if (p.contactPhone) {
+    const telHref = 'tel:' + p.contactPhone.replace(/[^+\d]/g, '');
+    const callBtn = document.getElementById('pdCallBtn');
+    callBtn.href = telHref;
+    callBtn.style.display = '';
+  }
+};
+</script>
+</body>
+</html>

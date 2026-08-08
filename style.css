@@ -881,6 +881,10 @@ button {
   transition: transform 0.6s ease;
   filter: brightness(0.88);
 }
+.prop-img-placeholder {
+  height: 240px;
+  background: linear-gradient(145deg, var(--dark3) 0%, var(--dark2) 100%);
+}
 .prop-card:hover .prop-img {
   transform: scale(1.07);
   filter: brightness(0.95);

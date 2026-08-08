@@ -150,7 +150,14 @@ function propCardHTML(p) {
   const img = p.mainImage ? sanityImg(p.mainImage, 600, 80) : p.image;
   const category = p.category || 'residential';
   const badge = p.badge ? `<span class="prop-badge type-${category}">${p.badge}</span>` : '';
-  return `<div class="prop-card reveal-up" data-category="${category}"><div class="prop-img-wrap"><img src="${img}" alt="${p.name}" class="prop-img" loading="lazy" /><div class="prop-overlay"><a href="/contact-us/" class="prop-view-btn">Enquire</a></div>${badge}</div><div class="prop-info"><h3 class="prop-name">${p.name}</h3><p class="prop-loc">📍 ${p.location||''}</p><div class="prop-meta"><span class="prop-price">${p.price||''}</span><span class="prop-specs">${p.specs||''}</span></div></div></div>`;
+  // Properties with a slug get a full detail page; others keep the default "Enquire" -> Contact Us behavior.
+  const hasDetail = !!(p.slug && p.slug.current);
+  const link = hasDetail ? `/properties/detail/?slug=${encodeURIComponent(p.slug.current)}` : '/contact-us/';
+  const linkLabel = hasDetail ? 'View Details' : 'Enquire';
+  const media = img
+    ? `<img src="${img}" alt="${p.name}" class="prop-img" loading="lazy" />`
+    : `<div class="prop-img-placeholder"></div>`;
+  return `<div class="prop-card reveal-up" data-category="${category}"><div class="prop-img-wrap">${media}<div class="prop-overlay"><a href="${link}" class="prop-view-btn">${linkLabel}</a></div>${badge}</div><div class="prop-info"><h3 class="prop-name">${p.name}</h3><p class="prop-loc">📍 ${p.location||''}</p><div class="prop-meta"><span class="prop-price">${p.price||''}</span><span class="prop-specs">${p.specs||''}</span></div></div></div>`;
 }
 
 window.__pageInit = async function() {
@@ -164,7 +171,7 @@ window.__pageInit = async function() {
   }
 
   const [properties, headers] = await Promise.all([
-    sanityFetch(`*[_type=="property" && status != "sold"] | order(displayOrder asc){name,category,price,location,specs,badge,mainImage}`),
+    sanityFetch(`*[_type=="property" && status != "sold"] | order(displayOrder asc){name,category,price,location,specs,badge,mainImage,slug}`),
     sanityFetch(`*[_type=="pageHeaders"][0]{propertiesHero}`)
   ]);
   const list = (properties && properties.length) ? properties : FALLBACK_PROPERTIES;
