@@ -106,6 +106,7 @@ src="https://www.facebook.com/tr?id=1817565675877663&ev=PageView&noscript=1"
     <div class="cta-btns">
       <a href="/contact-us/" class="btn-primary" id="pdEnquireBtn">Enquire Now</a>
       <a href="tel:" class="btn-ghost" id="pdCallBtn" style="display:none;">Call Now</a>
+      <a href="https://wa.me/" class="btn-ghost" id="pdWhatsappBtn" target="_blank" rel="noopener" style="display:none;">WhatsApp Us</a>
     </div>
   </div>
 </section>
@@ -243,10 +244,16 @@ window.__pageInit = async function() {
     document.getElementById('pdCtaSub').textContent = `Get complete property details, floor plans and availability. ${bits}`;
   }
   if (p.contactPhone) {
-    const telHref = 'tel:' + p.contactPhone.replace(/[^+\d]/g, '');
+    const digits = p.contactPhone.replace(/[^+\d]/g, '');
     const callBtn = document.getElementById('pdCallBtn');
-    callBtn.href = telHref;
+    callBtn.href = 'tel:' + digits;
     callBtn.style.display = '';
+
+    const waDigits = digits.replace(/^\+/, '');
+    const waMessage = encodeURIComponent(`Hi, I'm interested in ${p.name}. Could you share more details?`);
+    const waBtn = document.getElementById('pdWhatsappBtn');
+    waBtn.href = `https://wa.me/${waDigits}?text=${waMessage}`;
+    waBtn.style.display = '';
   }
 };
 </script>
