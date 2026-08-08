@@ -241,9 +241,10 @@ window.__pageInit = async function() {
       <p class="pd-location-blurb">${p.locationBlurb}</p>`;
   }
 
-  if (p.contactName) {
+  if (p.contactName || p.contactPhone) {
     const caption = document.getElementById('pdContactCaption');
-    caption.textContent = `Speak with ${p.contactName}`;
+    const who = p.contactName ? `Speak with ${p.contactName}` : 'Speak with us';
+    caption.textContent = p.contactPhone ? `${who} — ${p.contactPhone}` : who;
     caption.style.display = '';
   }
 
